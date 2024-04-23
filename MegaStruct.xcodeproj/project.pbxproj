@@ -15,6 +15,7 @@
 		37B718F62BD7DC4900B8892F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B718F52BD7DC4900B8892F /* Assets.xcassets */; };
 		37B718F92BD7DC4900B8892F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B718F72BD7DC4900B8892F /* LaunchScreen.storyboard */; };
 		37B719012BD7DC7D00B8892F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 37B719002BD7DC7D00B8892F /* .gitignore */; };
+		37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B719032BD7DE3C00B8892F /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		37B718F82BD7DC4900B8892F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B718FA2BD7DC4900B8892F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B719002BD7DC7D00B8892F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		37B719032BD7DE3C00B8892F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		37B718E82BD7DC4800B8892F /* MegaStruct */ = {
 			isa = PBXGroup;
 			children = (
+				37B719022BD7DE2B00B8892F /* Extension */,
 				37B718E92BD7DC4800B8892F /* AppDelegate.swift */,
 				37B718EB2BD7DC4800B8892F /* SceneDelegate.swift */,
 				37B718ED2BD7DC4800B8892F /* ViewController.swift */,
@@ -71,6 +74,14 @@
 				37B718F22BD7DC4800B8892F /* MegaStruct.xcdatamodeld */,
 			);
 			path = MegaStruct;
+			sourceTree = "<group>";
+		};
+		37B719022BD7DE2B00B8892F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				37B719032BD7DE3C00B8892F /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 				37B718EA2BD7DC4800B8892F /* AppDelegate.swift in Sources */,
 				37B718F42BD7DC4800B8892F /* MegaStruct.xcdatamodeld in Sources */,
 				37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */,
+				37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
