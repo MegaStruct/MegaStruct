@@ -75,8 +75,8 @@
 				37B718EB2BD7DC4800B8892F /* SceneDelegate.swift */,
 				37B719022BD7DE2B00B8892F /* Extension */,
 				37B719052BD7DF3C00B8892F /* Model */,
-				78F28D802BD8ABBC00207C6D /* Controller */,
 				78F28D7F2BD8ABAC00207C6D /* View */,
+				78F28D802BD8ABBC00207C6D /* Controller */,
 				37B718F52BD7DC4900B8892F /* Assets.xcassets */,
 				37B718ED2BD7DC4800B8892F /* ViewController.swift */,
 				37B718EF2BD7DC4800B8892F /* Main.storyboard */,
@@ -372,7 +372,7 @@
 				INFOPLIST_FILE = MegaStruct/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = LoginView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -404,7 +404,7 @@
 				INFOPLIST_FILE = MegaStruct/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = LoginView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
