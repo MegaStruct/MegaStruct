@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum HeaderTitle {
+    case upcoming
+    case nowPlaying
+    case popular
+    case topRated
+}
+
 final class NetworkManager {
     
     // MARK: - properties
@@ -27,13 +34,28 @@ final class NetworkManager {
     
     // path
     private let upcomingMoviePath = "/3/movie/upcoming"
+    private let nowPlayingMoviePath = "/3/movie/now_playing"
+    private let popularMoviePath = "/3/movie/popular"
+    private let topRatedMoviePath = "/3/movie/top_rated"
     
     // MARK: - methods
-    func fetchUpcomingMovieLists(language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
+    func fetchMovieLists(category: HeaderTitle, language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
         var urlComponents = URLComponents()
+        
         urlComponents.scheme = self.scheme
         urlComponents.host = self.movieHost
-        urlComponents.path = self.upcomingMoviePath
+        
+        switch category {
+        case .upcoming:
+            urlComponents.path = self.upcomingMoviePath
+        case .nowPlaying:
+            urlComponents.path = self.nowPlayingMoviePath
+        case .popular:
+            urlComponents.path = self.popularMoviePath
+        case .topRated:
+            urlComponents.path = self.topRatedMoviePath
+        }
+        
         urlComponents.queryItems = [URLQueryItem(name: "language", value: "\(language)"), URLQueryItem(name: "page", value: "\(page)")]
         
         guard let url = urlComponents.url else {
