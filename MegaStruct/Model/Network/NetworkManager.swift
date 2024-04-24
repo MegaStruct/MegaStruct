@@ -10,6 +10,7 @@ import Foundation
 final class NetworkManager {
     
     // MARK: - properties
+    let apiKey = Bundle.main.infoDictionary?["APIKey"] as! String
     
     // MARK: - methods
     
