@@ -40,7 +40,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginBtnOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LgD-lm-AXv"/>
+                                    <action selector="loginBtnOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TH1-9L-OKv"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="wXP-k5-FOR">

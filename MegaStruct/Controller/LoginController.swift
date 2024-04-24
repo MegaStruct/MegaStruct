@@ -8,8 +8,18 @@
 import UIKit
 
 class LoginController: UIViewController {
-
-    var userModel = UserModel() // 모델 인스턴스 생성
+    
+    struct User {
+        var userId: String
+        var userPWD: String
+    }
+    
+    var model: [User] = [
+        User (userId: "ahyeon", userPWD: "1234"),
+        User (userId: "jeongho", userPWD: "5678"),
+        User (userId: "jiyeon", userPWD: "91011"),
+        User (userId: "hanbit", userPWD: "12131415")
+    ]
     //버튼 넣기 userNameTextField: UITextField
     @IBOutlet weak var userIdTextField: UITextField!
     //버튼 넣기 userPWDTextField: UITextField
@@ -19,19 +29,27 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var checkBoxImageView: UIImageView!
     
-    @IBOutlet weak var autoLoginBtn: UIButton!
     
     
     @objc func checkBoxDidTap() {
         if checkBoxImageView.image == UIImage(systemName: "square") {
-                checkBoxImageView.image = UIImage(systemName: "checkmark.square")
-              } else {
-                checkBoxImageView.image = UIImage(systemName: "square")
-              }
+            checkBoxImageView.image = UIImage(systemName: "checkmark.square")
+        } else {
+            checkBoxImageView.image = UIImage(systemName: "square")
+        }
     }
     
     
-    
+    //이미 있는 유저인지 확인
+    func hasUser (name: String, pwd: String) -> Bool {
+        for user in model {
+            if user.userId == name && user.userPWD == pwd {
+                return true
+                
+            }
+        }
+        return false
+    }
     
     func customTextField(_textField: UITextField) {
         //텍스트 필드 둥글게
@@ -46,32 +64,44 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customTextField(_textField: userIdTextField)
-        customTextField(_textField: userPWDTextField)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
-                checkBoxImageView.isUserInteractionEnabled = true
-                checkBoxImageView.addGestureRecognizer(tapGesture) // 이미지 뷰 타겟
-        
+        if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") {
+            print("UserDefaults-user: \(lastLoggedInUser)")
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.moveMain()
+            }
+        } else {
+            
+            customTextField(_textField: userIdTextField)
+            customTextField(_textField: userPWDTextField)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
+            checkBoxImageView.isUserInteractionEnabled = true
+            checkBoxImageView.addGestureRecognizer(tapGesture) // 이미지 뷰 타겟
+        }
     }
-    
-    
     
     @IBAction func loginBtnOnClick(_ sender: Any) {
         
         guard let userId = userIdTextField.text, !userId.isEmpty else {return}
         guard let userPWD = userPWDTextField.text, !userPWD.isEmpty else {return}
         
-        let loginSuccess : Bool = userModel.hasUser(name: userId, pwd: userPWD)
+        
+        let loginSuccess : Bool = hasUser(name: userId, pwd: userPWD)
         if loginSuccess {
-            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "TemporaryMainViewController") else {return}
-            self.present(nextVC, animated: true)
+            moveMain()
+            UserDefaults.standard.set(userId, forKey: "userIdForKey")
+            
+            
             //TemporaryMainViewController 는 정호님 메인 페이지랑 연결할거라 확인해보려고 만든 컨트롤러!
         }
-        
     }
- 
     
+    func moveMain() {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "TemporaryMainViewController") else {return}
+        self.present(nextVC, animated: true)
+    }
     
 }
 
