@@ -71,7 +71,7 @@ class LoginController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 self.moveMain()
             }
-        } else {
+        }
             
             customTextField(_textField: userIdTextField)
             customTextField(_textField: userPWDTextField)
@@ -79,7 +79,7 @@ class LoginController: UIViewController {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
             checkBoxImageView.isUserInteractionEnabled = true
             checkBoxImageView.addGestureRecognizer(tapGesture) // 이미지 뷰 타겟
-        }
+        
     }
     
     @IBAction func loginBtnOnClick(_ sender: Any) {
