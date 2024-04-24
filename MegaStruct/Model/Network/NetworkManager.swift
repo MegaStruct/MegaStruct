@@ -31,12 +31,14 @@ final class NetworkManager {
     
     // host
     private let movieHost = "api.themoviedb.org"
+    private let moviePosterHost = "image.tmdb.org"
     
     // path
     private let upcomingMoviePath = "/3/movie/upcoming"
     private let nowPlayingMoviePath = "/3/movie/now_playing"
     private let popularMoviePath = "/3/movie/popular"
     private let topRatedMoviePath = "/3/movie/top_rated"
+    private let moviePosterPath = "/t/p/w500"
     
     // MARK: - methods
     func fetchMovieLists(category: HeaderTitle, language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
@@ -84,6 +86,39 @@ final class NetworkManager {
             } catch {
                 // completion(.failure(<#T##Error#>))
             }
+        }
+        
+        task.resume()
+    }
+    
+    func fetchPosterUrlImage(url: String, completion: @escaping ((Result<Data, Error>) -> Void)) {
+        var urlComponents = URLComponents()
+        
+        urlComponents.scheme = self.scheme
+        urlComponents.host = self.moviePosterHost
+        urlComponents.path = self.moviePosterPath + url
+        
+        guard let url = urlComponents.url else {
+            // completion(.failure(<#T##Error#>))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue("\(self.authorization)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(self.accept)", forHTTPHeaderField: "accept")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error {
+                // completion(.failure(<#T##Error#>))
+                return
+            }
+            
+            guard let data else {
+                // completion(.failure(<#T##Error#>))
+                return
+            }
+            
+            completion(.success(data))
         }
         
         task.resume()
