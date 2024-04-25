@@ -6,22 +6,25 @@
 //
 
 import UIKit
+import CoreData
 
 class JoinController: UIViewController {
     
+    var persistentContainer: NSPersistentContainer? {
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    }
+    
     @IBOutlet weak var joinIdTextField: UITextField!
-    
     @IBOutlet weak var joinPwdTextField: UITextField!
-    
     @IBOutlet weak var joinPwdCheckTextField: UITextField!
-    
     @IBOutlet weak var joinNicknameTextField: UITextField!
-    
     @IBOutlet weak var joinUserNameTextField: UITextField!
-    
     @IBOutlet weak var joinBirthDateTextField: UITextField!
     
     @IBOutlet weak var JoinBtn: UIButton!
+
+    @IBOutlet var defaultDiscriptionHiddenCollection: [UILabel]!
+    
     
     
     override func viewDidLoad() {
@@ -33,7 +36,12 @@ class JoinController: UIViewController {
         customTextField(_textField: joinUserNameTextField)
         customTextField(_textField: joinBirthDateTextField)
         
+        for label in defaultDiscriptionHiddenCollection {
+                    label.isHidden = true
+                }
+        
     }
+    
     func customTextField(_textField: UITextField) {
         //텍스트 필드 둥글게
         _textField.layer.cornerRadius = 25.0
@@ -43,7 +51,6 @@ class JoinController: UIViewController {
         _textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         _textField.leftViewMode = .always
     }
+  
     
-    @IBAction func joinBtnOnClick(_ sender: UIButton) {
-    }
 }
