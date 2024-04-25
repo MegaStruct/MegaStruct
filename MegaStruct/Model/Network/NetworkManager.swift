@@ -41,7 +41,7 @@ final class NetworkManager {
     private let moviePosterPath = "/t/p/w500"
     
     // MARK: - methods
-    func fetchMovieLists(category: HeaderTitle, language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
+    func fetchMovieList(category: HeaderTitle, language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
         var urlComponents = URLComponents()
         
         urlComponents.scheme = self.scheme
