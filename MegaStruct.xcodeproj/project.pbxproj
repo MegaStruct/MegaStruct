@@ -25,6 +25,7 @@
 		37BE42A62BD931AD002798DA /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 37BE42A52BD931AD002798DA /* SnapKit-Dynamic */; };
 		37BE42A92BD93E55002798DA /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */; };
 		37BE42AF2BDA019A002798DA /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42AE2BDA019A002798DA /* MainHeaderView.swift */; };
+		37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42B22BDABA85002798DA /* MainFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		37BE42A02BD9311E002798DA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		37BE42AE2BDA019A002798DA /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		37BE42B22BDABA85002798DA /* MainFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				37BE42A72BD93DFF002798DA /* Cell */,
 				37BE429D2BD930FB002798DA /* MainView.swift */,
 				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
+				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */,
 				37BE42A92BD93E55002798DA /* MainCollectionViewCell.swift in Sources */,
 				37B7190B2BD7DFBF00B8892F /* CoreDataManager.swift in Sources */,
+				37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */,
 				37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */,
 				37BE42A12BD9311E002798DA /* MainViewController.swift in Sources */,
 			);
