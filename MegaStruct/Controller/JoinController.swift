@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class JoinController: UIViewController {
+final class JoinController: UIViewController {
     
     var persistentContainer: NSPersistentContainer? {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
@@ -20,12 +20,8 @@ class JoinController: UIViewController {
     @IBOutlet weak var joinNicknameTextField: UITextField!
     @IBOutlet weak var joinUserNameTextField: UITextField!
     @IBOutlet weak var joinBirthDateTextField: UITextField!
-    
     @IBOutlet weak var JoinBtn: UIButton!
-
     @IBOutlet var defaultDiscriptionHiddenCollection: [UILabel]!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +33,8 @@ class JoinController: UIViewController {
         customTextField(_textField: joinBirthDateTextField)
         
         for label in defaultDiscriptionHiddenCollection {
-                    label.isHidden = true
-                }
-        
+            label.isHidden = true
+        }
     }
     
     func customTextField(_textField: UITextField) {
@@ -51,6 +46,46 @@ class JoinController: UIViewController {
         _textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         _textField.leftViewMode = .always
     }
-  
     
+    @IBAction func joinBtnOnClick(_ sender: UIButton) {
+        saveJoinUserData()
+    }
+    
+    private func saveJoinUserData(){
+        guard let context = self.persistentContainer?.viewContext else { return }
+        
+        guard let name = joinUserNameTextField.text, !name.isEmpty else {
+            print("Name is empty")
+            return
+        }
+        guard let id = joinIdTextField.text, !id.isEmpty else {
+            print("id is empty")
+            return
+        }
+        guard let pwd = joinPwdTextField.text, !pwd.isEmpty else {
+            print("pwd is empty")
+            return
+        }
+        guard let checkPwd = joinPwdCheckTextField.text, !checkPwd.isEmpty else {
+            print("checkPwd is empty")
+            return
+        }
+        guard let nickName = joinNicknameTextField.text, !nickName.isEmpty else {
+            print("nickName is empty")
+            return
+        }
+        guard let birthDate = joinBirthDateTextField.text, !birthDate.isEmpty else {
+            print("birthDate is empty")
+            return
+        }
+        let savejoinData = User(context: context)
+        
+        savejoinData.id = id
+        savejoinData.pwd = pwd
+        savejoinData.nickName = nickName
+        savejoinData.birthDate = Int32(birthDate) ?? 0
+        savejoinData.name = name
+        
+        try? context.save()
+    }
 }

@@ -253,6 +253,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="joinBtnOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L9Q-DO-Kpp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
