@@ -55,10 +55,17 @@ final class MainView: UIView {
         
         // section
         let section = NSCollectionLayoutSection(group: group)
-        section.boundarySupplementaryItems = [ createTitleHeaderLayout() ]
         section.orthogonalScrollingBehavior = .continuous
         
-        return UICollectionViewCompositionalLayout.init(section: section)
+        return UICollectionViewCompositionalLayout.init { sectionIndex, _ in
+            switch sectionIndex {
+            case 3:
+                section.boundarySupplementaryItems = [ self.createTitleHeaderLayout() ]
+            default:
+                section.boundarySupplementaryItems = [ self.createTitleHeaderLayout(), self.createDivisionLineFooterLayout() ]
+            }
+            return section
+        }
     }
     
     private func createTitleHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
@@ -69,5 +76,15 @@ final class MainView: UIView {
         )
         
         return header
+    }
+    
+    private func createDivisionLineFooterLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(1.0)),
+            elementKind: UICollectionView.elementKindSectionFooter,
+            alignment: .bottom
+        )
+        
+        return footer
     }
 }

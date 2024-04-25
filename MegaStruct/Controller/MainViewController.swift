@@ -107,6 +107,7 @@ final class MainViewController: UIViewController {
         
         mainView.collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
         mainView.collectionView.register(MainHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MainHeaderView")
+        mainView.collectionView.register(MainFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "MainFooterView")
     }
 }
 
@@ -134,6 +135,12 @@ extension MainViewController: UICollectionViewDataSource {
             }
             
             return header
+        case UICollectionView.elementKindSectionFooter:
+            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MainFooterView", for: indexPath) as? MainFooterView else {
+                return UICollectionReusableView()
+            }
+            
+            return footer
         default:
             return UICollectionReusableView()
         }
