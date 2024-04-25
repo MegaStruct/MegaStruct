@@ -21,6 +21,7 @@ class JoinController: UIViewController {
     
     @IBOutlet weak var joinBirthDateTextField: UITextField!
     
+    @IBOutlet weak var JoinBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -41,5 +42,8 @@ class JoinController: UIViewController {
         //텍스트 필드 안에 패딩
         _textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         _textField.leftViewMode = .always
+    }
+    
+    @IBAction func joinBtnOnClick(_ sender: UIButton) {
     }
 }
