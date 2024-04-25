@@ -29,8 +29,6 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var checkBoxImageView: UIImageView!
     
-    
-    
     @objc func checkBoxDidTap() {
         if checkBoxImageView.image == UIImage(systemName: "square") {
             checkBoxImageView.image = UIImage(systemName: "checkmark.square")
@@ -38,7 +36,6 @@ class LoginController: UIViewController {
             checkBoxImageView.image = UIImage(systemName: "square")
         }
     }
-    
     
     //이미 있는 유저인지 확인
     func hasUser (name: String, pwd: String) -> Bool {
@@ -61,7 +58,6 @@ class LoginController: UIViewController {
         _textField.leftViewMode = .always
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,14 +68,13 @@ class LoginController: UIViewController {
                 self.moveMain()
             }
         }
-            
-            customTextField(_textField: userIdTextField)
-            customTextField(_textField: userPWDTextField)
-            
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
-            checkBoxImageView.isUserInteractionEnabled = true
-            checkBoxImageView.addGestureRecognizer(tapGesture) // 이미지 뷰 타겟
         
+        customTextField(_textField: userIdTextField)
+        customTextField(_textField: userPWDTextField)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
+        checkBoxImageView.isUserInteractionEnabled = true
+        checkBoxImageView.addGestureRecognizer(tapGesture) // 이미지 뷰 타겟
     }
     
     @IBAction func loginBtnOnClick(_ sender: Any) {
@@ -87,14 +82,11 @@ class LoginController: UIViewController {
         guard let userId = userIdTextField.text, !userId.isEmpty else {return}
         guard let userPWD = userPWDTextField.text, !userPWD.isEmpty else {return}
         
-        
         let loginSuccess : Bool = hasUser(name: userId, pwd: userPWD)
         if loginSuccess {
             moveMain()
             UserDefaults.standard.set(userId, forKey: "userIdForKey")
             
-            
-            //TemporaryMainViewController 는 정호님 메인 페이지랑 연결할거라 확인해보려고 만든 컨트롤러!
         }
     }
     
@@ -102,6 +94,4 @@ class LoginController: UIViewController {
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "TemporaryMainViewController") else {return}
         self.present(nextVC, animated: true)
     }
-    
 }
-
