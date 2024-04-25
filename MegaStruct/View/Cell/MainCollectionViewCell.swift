@@ -13,6 +13,10 @@ final class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - properties
     private let movieImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(resource: .logo)
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.megaRed.cgColor
         return imageView
     }()
     
@@ -28,7 +32,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        movieImageView.image = nil
+        movieImageView.image = UIImage(resource: .logo)
         movieTitleLabel.text = nil
     }
     
@@ -72,6 +76,8 @@ final class MainCollectionViewCell: UICollectionViewCell {
         
         if let imageData = imageData {
             movieImageView.image = UIImage(data: imageData)
+            movieImageView.layer.borderWidth = 0
+            movieImageView.layer.borderColor = UIColor.clear.cgColor
         }
     }
 }
