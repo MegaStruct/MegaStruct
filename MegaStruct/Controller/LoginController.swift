@@ -1,33 +1,17 @@
-//
-//  LoginController.swift
-//  MegaStruct
-//
-//  Created by A Hyeon on 4/24/24.
-//
-
 import UIKit
+import CoreData
 
 class LoginController: UIViewController {
     
-    struct User {
-        var userId: String
-        var userPWD: String
-    }
-    
-    var model: [User] = [
-        User (userId: "ahyeon", userPWD: "1234"),
-        User (userId: "jeongho", userPWD: "5678"),
-        User (userId: "jiyeon", userPWD: "91011"),
-        User (userId: "hanbit", userPWD: "12131415")
-    ]
-    //버튼 넣기 userNameTextField: UITextField
     @IBOutlet weak var userIdTextField: UITextField!
-    //버튼 넣기 userPWDTextField: UITextField
     @IBOutlet weak var userPWDTextField: UITextField!
-    //버튼 넣기 loginBtn: RoundBtn
     @IBOutlet weak var loginBtn: UIButton!
-    
     @IBOutlet weak var checkBoxImageView: UIImageView!
+    
+    var context: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
     
     @objc func checkBoxDidTap() {
         if checkBoxImageView.image == UIImage(systemName: "square") {
@@ -37,61 +21,68 @@ class LoginController: UIViewController {
         }
     }
     
-    //이미 있는 유저인지 확인
-    func hasUser (name: String, pwd: String) -> Bool {
-        for user in model {
-            if user.userId == name && user.userPWD == pwd {
-                return true
-                
-            }
-        }
-        return false
-    }
-    
-    func customTextField(_textField: UITextField) {
-        //텍스트 필드 둥글게
-        _textField.layer.cornerRadius = 25.0
-        _textField.layer.masksToBounds = true
-        
-        //텍스트 필드 안에 패딩
-        _textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
-        _textField.leftViewMode = .always
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") {
-            print("UserDefaults-user: \(lastLoggedInUser)")
+            print("UserDefaults - Last logged in user: \(lastLoggedInUser)")
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.moveMain()
             }
         }
         
-        customTextField(_textField: userIdTextField)
-        customTextField(_textField: userPWDTextField)
+        customTextField(userIdTextField)
+        customTextField(userPWDTextField)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
         checkBoxImageView.isUserInteractionEnabled = true
-        checkBoxImageView.addGestureRecognizer(tapGesture) // 이미지 뷰 타겟
+        checkBoxImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    func customTextField(_ textField: UITextField) {
+        textField.layer.cornerRadius = 25.0
+        textField.layer.masksToBounds = true
+        
+        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
+        textField.leftViewMode = .always
     }
     
     @IBAction func loginBtnOnClick(_ sender: Any) {
+        guard let userId = userIdTextField.text, !userId.isEmpty else {
+            print("User ID is empty")
+            return
+        }
         
-        guard let userId = userIdTextField.text, !userId.isEmpty else {return}
-        guard let userPWD = userPWDTextField.text, !userPWD.isEmpty else {return}
+        guard let userPWD = userPWDTextField.text, !userPWD.isEmpty else {
+            print("User password is empty")
+            return
+        }
         
-        let loginSuccess : Bool = hasUser(name: userId, pwd: userPWD)
-        if loginSuccess {
-            moveMain()
-            UserDefaults.standard.set(userId, forKey: "userIdForKey")
-            
+        // 코어 데이터에서 id와 pwd가 일치하는 사용자 검색
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "id == %@ AND pwd == %@", userId, userPWD)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            if results.count > 0 {
+                // 로그인 성공
+                print("Login successful!")
+                UserDefaults.standard.set(userId, forKey: "userIdForKey")
+                moveMain()
+            } else {
+                // 로그인 실패
+                print("Login failed: Invalid user ID or password")
+            }
+        } catch {
+            print("Error fetching user data: \(error)")
         }
     }
     
     func moveMain() {
-        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "TemporaryMainViewController") else {return}
-        self.present(nextVC, animated: true)
+        guard let nextVC = storyboard?.instantiateViewController(identifier: "TemporaryMainViewController") else {
+            return
+        }
+        present(nextVC, animated: true)
     }
 }
