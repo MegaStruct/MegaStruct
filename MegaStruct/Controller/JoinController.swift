@@ -9,14 +9,28 @@ import UIKit
 
 class JoinController: UIViewController {
     
+    @IBOutlet weak var joinIdTextField: UITextField!
     
+    @IBOutlet weak var joinPwdTextField: UITextField!
+    
+    @IBOutlet weak var joinPwdCheckTextField: UITextField!
+    
+    @IBOutlet weak var joinNicknameTextField: UITextField!
+    
+    @IBOutlet weak var joinUserNameTextField: UITextField!
+    
+    @IBOutlet weak var joinBirthDateTextField: UITextField!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        customTextField(_textField: userIdTextField)
-//        customTextField(_textField: userPWDTextField)
+        customTextField(_textField: joinIdTextField)
+        customTextField(_textField: joinPwdTextField)
+        customTextField(_textField: joinPwdCheckTextField)
+        customTextField(_textField: joinNicknameTextField)
+        customTextField(_textField: joinUserNameTextField)
+        customTextField(_textField: joinBirthDateTextField)
         
     }
     func customTextField(_textField: UITextField) {
