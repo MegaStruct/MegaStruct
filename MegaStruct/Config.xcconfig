@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  MegaStruct
+//
+//  Created by 김정호 on 4/24/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = API KEY를 입력해주세요
