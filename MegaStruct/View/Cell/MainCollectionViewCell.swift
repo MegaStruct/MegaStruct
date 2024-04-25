@@ -18,7 +18,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
     
     private let movieTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textColor = .black
         label.numberOfLines = 1
         return label
