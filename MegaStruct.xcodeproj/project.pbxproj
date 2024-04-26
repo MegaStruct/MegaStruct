@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		372544D12BDB90BA007A8D57 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372544D02BDB90BA007A8D57 /* DetailView.swift */; };
 		372544D32BDB90ED007A8D57 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372544D22BDB90ED007A8D57 /* DetailViewController.swift */; };
+		372544D62BDB9584007A8D57 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 372544D52BDB9584007A8D57 /* Cosmos */; };
 		37B718EA2BD7DC4800B8892F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B718E92BD7DC4800B8892F /* AppDelegate.swift */; };
 		37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B718EB2BD7DC4800B8892F /* SceneDelegate.swift */; };
 		37B718EE2BD7DC4800B8892F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B718ED2BD7DC4800B8892F /* ViewController.swift */; };
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372544D62BDB9584007A8D57 /* Cosmos in Frameworks */,
 				37BE42A42BD931AD002798DA /* SnapKit in Frameworks */,
 				37BE42A62BD931AD002798DA /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -193,6 +195,7 @@
 			packageProductDependencies = (
 				37BE42A32BD931AD002798DA /* SnapKit */,
 				37BE42A52BD931AD002798DA /* SnapKit-Dynamic */,
+				372544D52BDB9584007A8D57 /* Cosmos */,
 			);
 			productName = MegaStruct;
 			productReference = 37B718E62BD7DC4800B8892F /* MegaStruct.app */;
@@ -224,6 +227,7 @@
 			mainGroup = 37B718DD2BD7DC4800B8892F;
 			packageReferences = (
 				37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				372544D42BDB9584007A8D57 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 37B718E72BD7DC4800B8892F /* Products */;
 			projectDirPath = "";
@@ -504,6 +508,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		372544D42BDB9584007A8D57 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 		37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -515,6 +527,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		372544D52BDB9584007A8D57 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 372544D42BDB9584007A8D57 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
 		37BE42A32BD931AD002798DA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */;
