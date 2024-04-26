@@ -35,7 +35,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPD-WW-MEa">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임을 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPD-WW-MEa">
                                                 <rect key="frame" x="0.0" y="32" width="256" height="48"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -70,7 +70,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lG2-L9-SuQ">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="아이디를 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lG2-L9-SuQ">
                                                 <rect key="frame" x="0.0" y="32" width="256" height="48"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -105,7 +105,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOZ-kC-FJD">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOZ-kC-FJD">
                                                 <rect key="frame" x="0.0" y="32" width="256" height="48"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -140,7 +140,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 한번 더 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-IY-iy4">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 한번 더 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-IY-iy4">
                                                 <rect key="frame" x="0.0" y="32" width="256" height="48"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -175,7 +175,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="생년월일을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMU-IC-0iv">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름을 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMU-IC-0iv">
                                                 <rect key="frame" x="0.0" y="32" width="256" height="48"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -210,7 +210,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-Ah-6Az">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="생년월일을 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-Ah-6Az">
                                                 <rect key="frame" x="0.0" y="32" width="256" height="48"/>
                                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -218,7 +218,7 @@
                                                     <constraint firstAttribute="width" constant="256" id="bua-Xd-q4c"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -254,7 +254,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="joinBtnOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L9Q-DO-Kpp"/>
+                                    <action selector="joinBtnOnClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Btl-bY-JAm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -274,19 +274,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="JoinBtn" destination="FXo-YU-eOj" id="w73-Co-HRa"/>
+                        <outlet property="alertBirthLabel" destination="4JU-o9-sFz" id="yqA-CE-gZw"/>
+                        <outlet property="alertCheckPwdLabel" destination="jmN-VI-Ka9" id="wnu-bf-U4L"/>
+                        <outlet property="alertIdLabel" destination="W2r-JO-vG8" id="lZv-3Y-Kli"/>
+                        <outlet property="alertNameLabel" destination="eVX-fB-MLh" id="IuG-y6-2rg"/>
+                        <outlet property="alertNickNameLabel" destination="Iu9-P7-lpP" id="t8S-iF-qDO"/>
+                        <outlet property="alertPwdLabel" destination="PsP-F5-b8G" id="pVf-3M-fcY"/>
                         <outlet property="joinBirthDateTextField" destination="bvT-Ah-6Az" id="Eom-qo-FE1"/>
+                        <outlet property="joinBtn" destination="FXo-YU-eOj" id="hYH-eU-L81"/>
                         <outlet property="joinIdTextField" destination="lG2-L9-SuQ" id="eEo-B8-f4R"/>
                         <outlet property="joinNicknameTextField" destination="WPD-WW-MEa" id="Asn-eW-jzU"/>
                         <outlet property="joinPwdCheckTextField" destination="yRk-IY-iy4" id="NWY-Xl-2dh"/>
                         <outlet property="joinPwdTextField" destination="JOZ-kC-FJD" id="X1n-Ih-QSf"/>
                         <outlet property="joinUserNameTextField" destination="kMU-IC-0iv" id="H6S-Co-hZ5"/>
-                        <outletCollection property="defaultDiscriptionHiddenCollection" destination="Iu9-P7-lpP" collectionClass="NSMutableArray" id="DYB-bb-A6G"/>
-                        <outletCollection property="defaultDiscriptionHiddenCollection" destination="W2r-JO-vG8" collectionClass="NSMutableArray" id="5Vz-2I-0nU"/>
-                        <outletCollection property="defaultDiscriptionHiddenCollection" destination="PsP-F5-b8G" collectionClass="NSMutableArray" id="nqJ-FS-iLJ"/>
-                        <outletCollection property="defaultDiscriptionHiddenCollection" destination="jmN-VI-Ka9" collectionClass="NSMutableArray" id="vBQ-hu-ul5"/>
-                        <outletCollection property="defaultDiscriptionHiddenCollection" destination="eVX-fB-MLh" collectionClass="NSMutableArray" id="cac-lD-o0A"/>
-                        <outletCollection property="defaultDiscriptionHiddenCollection" destination="4JU-o9-sFz" collectionClass="NSMutableArray" id="Xn1-zz-DGK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
