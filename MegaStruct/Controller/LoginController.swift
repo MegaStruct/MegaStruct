@@ -7,6 +7,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var userPWDTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var checkBoxImageView: UIImageView!
+    @IBOutlet weak var joinBtn: UIButton!
     
     var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -24,14 +25,6 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") {
-            print("UserDefaults - Last logged in user: \(lastLoggedInUser)")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.moveMain()
-            }
-        }
-        
         customTextField(userIdTextField)
         customTextField(userPWDTextField)
         
@@ -43,7 +36,6 @@ class LoginController: UIViewController {
     func customTextField(_ textField: UITextField) {
         textField.layer.cornerRadius = 25.0
         textField.layer.masksToBounds = true
-        
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         textField.leftViewMode = .always
     }
@@ -51,28 +43,29 @@ class LoginController: UIViewController {
     @IBAction func loginBtnOnClick(_ sender: Any) {
         guard let userId = userIdTextField.text, !userId.isEmpty else {
             print("User ID is empty")
+            shakeTextField(userIdTextField)
             return
         }
         
         guard let userPWD = userPWDTextField.text, !userPWD.isEmpty else {
             print("User password is empty")
+            shakeTextField(userPWDTextField)
             return
         }
         
-        // 코어 데이터에서 id와 pwd가 일치하는 사용자 검색
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "id == %@ AND pwd == %@", userId, userPWD)
         
         do {
             let results = try context.fetch(fetchRequest)
             if results.count > 0 {
-                // 로그인 성공
                 print("Login successful!")
                 UserDefaults.standard.set(userId, forKey: "userIdForKey")
                 moveMain()
             } else {
-                // 로그인 실패
                 print("Login failed: Invalid user ID or password")
+                shakeTextField(userIdTextField)
+                shakeTextField(userPWDTextField)
             }
         } catch {
             print("Error fetching user data: \(error)")
@@ -80,9 +73,26 @@ class LoginController: UIViewController {
     }
     
     func moveMain() {
-        guard let nextVC = storyboard?.instantiateViewController(identifier: "TemporaryMainViewController") else {
-            return
-        }
-        present(nextVC, animated: true)
+        let mainVC = MainViewController()
+        present(mainVC, animated: true)
     }
+    
+    func shakeTextField(_ textField: UITextField) {
+        let shake = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.05
+        shake.repeatCount = 5
+        shake.autoreverses = true
+        shake.fromValue = NSValue(cgPoint: CGPoint(x: textField.center.x - 5, y: textField.center.y))
+        shake.toValue = NSValue(cgPoint: CGPoint(x: textField.center.x + 5, y: textField.center.y))
+        textField.layer.add(shake, forKey: "position")
+    }
+    
+    @IBAction func joinBtnOnClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "JoinView", bundle: nil)
+        if let joinVC = storyboard.instantiateViewController(withIdentifier: "JoinController") as? JoinController {
+            joinVC.modalPresentationStyle = .fullScreen
+            present(joinVC, animated: true, completion: nil)
+        }
+    }
+    
 }
