@@ -35,6 +35,10 @@ final class JoinController: UIViewController {
         for label in defaultDiscriptionHiddenCollection {
             label.isHidden = true
         }
+        
+        joinIdTextField.delegate = self
+        joinNicknameTextField.delegate = self
+        joinUserNameTextField.delegate = self
     }
     
     func customTextField(_textField: UITextField) {
@@ -89,3 +93,19 @@ final class JoinController: UIViewController {
         try? context.save()
     }
 }
+
+extension JoinController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        guard textField.text!.count < 10 else { return false } // 10 글자로 제한
+        return true
+    }
+}
+
+
