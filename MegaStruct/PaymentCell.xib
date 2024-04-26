@@ -61,7 +61,7 @@
                                 <rect key="frame" x="27" y="22" width="52" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="0.58039215690000001" green="0.59999999999999998" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.96078431369999995" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLS-md-lMp">
@@ -122,11 +122,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateLabel" destination="fma-HA-oRo" id="Sgq-rQ-s8A"/>
+                <outlet property="payView" destination="SUO-ol-fV5" id="Vq6-Ne-S09"/>
                 <outlet property="priceLabel" destination="yZj-c5-Rlc" id="UPG-Av-e9Z"/>
                 <outlet property="timeLabel" destination="9u1-H8-9iJ" id="wu0-x4-2SE"/>
                 <outlet property="titleLabel" destination="Gsl-6d-UKe" id="GfW-g0-gjV"/>
             </connections>
-            <point key="canvasLocation" x="257" y="-15"/>
+            <point key="canvasLocation" x="-575" y="-7"/>
         </tableViewCell>
     </objects>
     <resources>

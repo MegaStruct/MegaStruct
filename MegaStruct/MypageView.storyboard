@@ -49,7 +49,7 @@
                                                         <rect key="frame" x="27" y="17" width="142" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <color key="textColor" red="0.58039215690000001" green="0.59999999999999998" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="textColor" red="0.96078431369999995" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -62,7 +62,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIZ-4w-UMP">
-                                                <rect key="frame" x="322.33333333333331" y="9.9999999999999964" width="60.666666666666686" height="47.666666666666657"/>
+                                                <rect key="frame" x="322.33333333333331" y="9.9999999999999964" width="61" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" imagePlacement="top" imagePadding="5">
@@ -74,7 +74,7 @@
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="baseForegroundColor" red="0.33784700870000001" green="0.34151262399999999" blue="0.35250946970000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="baseForegroundColor" red="0.96078431369999995" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="logoutTapped:" destination="iEk-mW-e4o" eventType="touchUpInside" id="Hfr-4m-gez"/>
@@ -135,7 +135,7 @@
                                                         <rect key="frame" x="27" y="22" width="43" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                        <color key="textColor" red="0.58039215690000001" green="0.59999999999999998" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="textColor" red="0.96078431369999995" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="megastructs123" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lt-CI-eQT">
@@ -176,13 +176,17 @@
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="25"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-vZ-gPR">
+                                                <rect key="frame" x="20" y="20" width="90" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <connections>
+                                                    <action selector="addButton:" destination="iEk-mW-e4o" eventType="touchUpInside" id="uCR-ux-3b8"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -208,6 +212,7 @@
                     </view>
                     <connections>
                         <outlet property="idLabel" destination="2lt-CI-eQT" id="GFY-gN-Hh5"/>
+                        <outlet property="myView" destination="Nep-81-esi" id="Yje-em-bMu"/>
                         <outlet property="nameLabel" destination="bFl-rR-PYD" id="chz-2R-HhM"/>
                         <outlet property="nicknameLabel" destination="jyv-JB-c6E" id="B3c-8v-ZfP"/>
                         <outlet property="nicknameLabel2" destination="i0y-1v-eil" id="PKA-bk-AGd"/>
@@ -215,11 +220,12 @@
                         <outlet property="profileView" destination="bfw-3Y-suI" id="eYh-8s-SHX"/>
                         <outlet property="scrollView" destination="HJs-ma-DxA" id="3c3-eL-FZV"/>
                         <outlet property="tableView" destination="vdG-fa-PFI" id="yuA-Jv-xwT"/>
+                        <outlet property="wordView" destination="S0o-oh-bIS" id="Edy-GP-aL9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41y-fC-Y82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-640" y="-796"/>
+            <point key="canvasLocation" x="-2105" y="-545"/>
         </scene>
     </scenes>
     <resources>

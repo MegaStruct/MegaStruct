@@ -1,11 +1,14 @@
 
 import UIKit
 import CoreData
+import MegaStruct
 
 class MyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myView: UIView!
+    @IBOutlet weak var wordView: UIView!
     
     var reservations: [NSManagedObject] = []
     // CoreDataManager 인스턴스 생성
@@ -30,6 +33,15 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         profileView.isUserInteractionEnabled = true
         profileView.addGestureRecognizer(tapGesture)
+        
+        //포인트 색 입히기
+        // myView 설정
+        myView.layer.borderWidth = 1.0
+        myView.layer.borderColor = UIColor.megaRed.cgColor
+        myView.layer.cornerRadius = 25.0
+        //한마디 View 설정
+        wordView.layer.borderColor = UIColor.megaRed.cgColor
+        wordView.layer.borderWidth = 1.0
     }
     // 프로필 사진 변경
     @objc func imageTapped() {
@@ -47,7 +59,7 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.isScrollEnabled = false
         
         // 테이블 뷰의 높이 계산
-        var tableViewHeight = CGFloat(reservations.count) * 330 // 예매 내역 셀 높이 * 예매 내역 수
+        let tableViewHeight = CGFloat(reservations.count) * 330 // 예매 내역 셀 높이 * 예매 내역 수
         
         // 테이블 뷰의 프레임 조정
         tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableViewHeight)
@@ -57,6 +69,11 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         
         //스크롤이 가려지지 않게 여백?공간 추가
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableViewHeight, right: 0)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // 예매내역 셀의 높이
+        return 330
     }
         
     func fetchReservations() {
@@ -72,34 +89,28 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentCell", for: indexPath) as! PaymentCell
-        
+
         let reservation = reservations[indexPath.row]
         cell.configure(with: reservation)
         
-        // 클로저에서 셀의 버튼 클릭 이벤트 처리
+        // 셀의 버튼에 액션을 연결
         cell.onDeleteButtonTapped = { [weak self] in
-            // 클로저 내에서 indexPath를 직접 참조하여 해당 셀의 삭제를 처리
-            if let indexPathToDelete = tableView.indexPath(for: cell) {
-                self?.deleteCell(at: indexPathToDelete)
-            }
+            self?.deleteCell(at: indexPath)
         }
-        
+
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // 예매내역 셀의 높이
-        return 330
     }
     
     //예매 내역 삭제하기
     func deleteCell(at indexPath: IndexPath) {
         let deletedReservation = reservations.remove(at: indexPath.row)
         coreDataManager.deleteMovie(movie: deletedReservation)
+        
         tableView.deleteRows(at: [indexPath], with: .fade)
         
         // 삭제 후 남은 예매 내역으로 스크롤 뷰의 높이 조정
         scrollView.contentSize.height -= 330
+        
     }
     
     //프로필 사진 선택하기
@@ -141,6 +152,26 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var nicknameLabel2: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
+    
+    
+    // 임시로 코어데이터 추가할라고
+    @IBAction func addButton(_ sender: Any) {
+        addTemporaryReservation() // 버튼이 탭될 때 임시 예매 내역 추가
+    }
+    // 임시로 예매 내역을 추가하는 기능
+    func addTemporaryReservation() {
+        // 임시 데이터 생성
+        let title = "임시 예매"
+        let showDate = Date()
+        let showTime = Date()
+        let price = "10000"
+            
+        // CoreDataManager를 사용하여 임시 데이터 저장
+        coreDataManager.saveMovie(title: title, showDate: showDate, showTime: showTime, price: price)
+            
+        // 예매 내역 가져오기
+        fetchReservations()
+    }
     
 }
 
