@@ -23,23 +23,27 @@ struct Response: Decodable {
 
 struct Movie: Decodable {
     let adult: Bool?
+    let backdropPath: String?
     let genreIDS: [Int]
     let id: Int?
-    let overview: String?
+    let originalLanguage, originalTitle, overview: String?
     let posterPath: String?
     let releaseDate: String?
     let title: String?
+    let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case adult
+        case backdropPath = "backdrop_path"
         case genreIDS = "genre_ids"
         case id
-        case overview
+        case originalLanguage, originalTitle, overview
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title
+        case video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
