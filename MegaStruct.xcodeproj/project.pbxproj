@@ -139,10 +139,6 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		78F28D8C2BD982E200207C6D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				78F28D882BD982C300207C6D /* JoinView.storyboard */,
 		37BE429C2BD930B3002798DA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,18 +146,16 @@
 				37BE429D2BD930FB002798DA /* MainView.swift */,
 				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
 				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
+                78F28D882BD982C300207C6D /* JoinView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		78F28D8D2BD9831F00207C6D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 		37BE429F2BD93102002798DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				37BE42A02BD9311E002798DA /* MainViewController.swift */,
+                78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
