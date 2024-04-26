@@ -112,7 +112,22 @@ final class MainViewController: UIViewController {
 }
 
 extension MainViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        
+        switch indexPath.section {
+        case 0:
+            detailVC.bind(movie: upcomingMovies[indexPath.row])
+        case 1:
+            detailVC.bind(movie: nowPlayingMovies[indexPath.row])
+        case 2:
+            detailVC.bind(movie: popularMovies[indexPath.row])
+        default:
+            detailVC.bind(movie: topRatedMovies[indexPath.row])
+        }
+        
+        present(detailVC, animated: true)
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {
