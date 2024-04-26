@@ -13,6 +13,6 @@ extension UIColor {
     }
     
     static var whiteGray: UIColor {
-        return .init(red: 246/225, green: 246/255, blue: 246/255, alpha: 1)
+        return .init(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
     }
 }
