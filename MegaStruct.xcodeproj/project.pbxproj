@@ -18,6 +18,8 @@
 		37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B719032BD7DE3C00B8892F /* UIColor+Extension.swift */; };
 		37B719082BD7DF5700B8892F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B719072BD7DF5700B8892F /* NetworkManager.swift */; };
 		37B7190B2BD7DFBF00B8892F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B7190A2BD7DFBF00B8892F /* CoreDataManager.swift */; };
+		78F28D892BD982C300207C6D /* JoinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F28D882BD982C300207C6D /* JoinView.storyboard */; };
+		78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F28D8A2BD982DA00207C6D /* JoinController.swift */; };
 		37BE429B2BD8FE2A002798DA /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE429A2BD8FE2A002798DA /* Response.swift */; };
 		37BE429E2BD930FB002798DA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE429D2BD930FB002798DA /* MainView.swift */; };
 		37BE42A12BD9311E002798DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42A02BD9311E002798DA /* MainViewController.swift */; };
@@ -42,6 +44,8 @@
 		37B719032BD7DE3C00B8892F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		37B719072BD7DF5700B8892F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		37B7190A2BD7DFBF00B8892F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		78F28D882BD982C300207C6D /* JoinView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinView.storyboard; sourceTree = "<group>"; };
+		78F28D8A2BD982DA00207C6D /* JoinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinController.swift; sourceTree = "<group>"; };
 		37BE42992BD8F4CB002798DA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		37BE429A2BD8FE2A002798DA /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		37BE429D2BD930FB002798DA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -135,6 +139,10 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		78F28D8C2BD982E200207C6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78F28D882BD982C300207C6D /* JoinView.storyboard */,
 		37BE429C2BD930B3002798DA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +154,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		78F28D8D2BD9831F00207C6D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 		37BE429F2BD93102002798DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +241,7 @@
 			files = (
 				37B719012BD7DC7D00B8892F /* .gitignore in Resources */,
 				37B718F92BD7DC4900B8892F /* LaunchScreen.storyboard in Resources */,
+				78F28D892BD982C300207C6D /* JoinView.storyboard in Resources */,
 				37B718F62BD7DC4900B8892F /* Assets.xcassets in Resources */,
 				37B718F12BD7DC4800B8892F /* Main.storyboard in Resources */,
 			);
@@ -247,6 +260,7 @@
 				37B718EE2BD7DC4800B8892F /* ViewController.swift in Sources */,
 				37BE42AF2BDA019A002798DA /* MainHeaderView.swift in Sources */,
 				37B718EA2BD7DC4800B8892F /* AppDelegate.swift in Sources */,
+				78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */,
 				37B718F42BD7DC4800B8892F /* MegaStruct.xcdatamodeld in Sources */,
 				37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */,
 				37BE42A92BD93E55002798DA /* MainCollectionViewCell.swift in Sources */,
