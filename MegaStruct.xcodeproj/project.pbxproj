@@ -22,6 +22,17 @@
 		FB8CDBE92BDA677D005DFE19 /* PaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */; };
 		FBC1D5B22BD7E88F0059EEB4 /* MypageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */; };
 		FBC1D5B42BD7E89A0059EEB4 /* MypageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */; };
+		78F28D892BD982C300207C6D /* JoinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F28D882BD982C300207C6D /* JoinView.storyboard */; };
+		78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F28D8A2BD982DA00207C6D /* JoinController.swift */; };
+		37BE429B2BD8FE2A002798DA /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE429A2BD8FE2A002798DA /* Response.swift */; };
+		37BE429E2BD930FB002798DA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE429D2BD930FB002798DA /* MainView.swift */; };
+		37BE42A12BD9311E002798DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42A02BD9311E002798DA /* MainViewController.swift */; };
+		37BE42A42BD931AD002798DA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37BE42A32BD931AD002798DA /* SnapKit */; };
+		37BE42A62BD931AD002798DA /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 37BE42A52BD931AD002798DA /* SnapKit-Dynamic */; };
+		37BE42A92BD93E55002798DA /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */; };
+		37BE42AF2BDA019A002798DA /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42AE2BDA019A002798DA /* MainHeaderView.swift */; };
+		37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BE42B22BDABA85002798DA /* MainFooterView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +53,16 @@
 		FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCell.xib; sourceTree = "<group>"; };
 		FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageController.swift; sourceTree = "<group>"; };
 		FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MypageView.storyboard; sourceTree = "<group>"; };
+		78F28D882BD982C300207C6D /* JoinView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JoinView.storyboard; sourceTree = "<group>"; };
+		78F28D8A2BD982DA00207C6D /* JoinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinController.swift; sourceTree = "<group>"; };
+		37BE42992BD8F4CB002798DA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		37BE429A2BD8FE2A002798DA /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		37BE429D2BD930FB002798DA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		37BE42A02BD9311E002798DA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		37BE42AE2BDA019A002798DA /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		37BE42B22BDABA85002798DA /* MainFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFooterView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37BE42A42BD931AD002798DA /* SnapKit in Frameworks */,
+				37BE42A62BD931AD002798DA /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +102,8 @@
 				37B718EB2BD7DC4800B8892F /* SceneDelegate.swift */,
 				37B719022BD7DE2B00B8892F /* Extension */,
 				37B719052BD7DF3C00B8892F /* Model */,
+				37BE429C2BD930B3002798DA /* View */,
+				37BE429F2BD93102002798DA /* Controller */,
 				37B718ED2BD7DC4800B8892F /* ViewController.swift */,
 				37B718EF2BD7DC4800B8892F /* Main.storyboard */,
 				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
@@ -89,6 +114,7 @@
 				37B718F72BD7DC4900B8892F /* LaunchScreen.storyboard */,
 				37B718FA2BD7DC4900B8892F /* Info.plist */,
 				37B718F22BD7DC4800B8892F /* MegaStruct.xcdatamodeld */,
+				37BE42992BD8F4CB002798DA /* Config.xcconfig */,
 			);
 			path = MegaStruct;
 			sourceTree = "<group>";
@@ -114,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				37B719072BD7DF5700B8892F /* NetworkManager.swift */,
+				37BE429A2BD8FE2A002798DA /* Response.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -124,6 +151,35 @@
 				37B7190A2BD7DFBF00B8892F /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		37BE429C2BD930B3002798DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37BE42A72BD93DFF002798DA /* Cell */,
+				37BE429D2BD930FB002798DA /* MainView.swift */,
+				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
+				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
+                78F28D882BD982C300207C6D /* JoinView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37BE429F2BD93102002798DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37BE42A02BD9311E002798DA /* MainViewController.swift */,
+                78F28D8A2BD982DA00207C6D /* JoinController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		37BE42A72BD93DFF002798DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +198,10 @@
 			dependencies = (
 			);
 			name = MegaStruct;
+			packageProductDependencies = (
+				37BE42A32BD931AD002798DA /* SnapKit */,
+				37BE42A52BD931AD002798DA /* SnapKit-Dynamic */,
+			);
 			productName = MegaStruct;
 			productReference = 37B718E62BD7DC4800B8892F /* MegaStruct.app */;
 			productType = "com.apple.product-type.application";
@@ -170,6 +230,9 @@
 				Base,
 			);
 			mainGroup = 37B718DD2BD7DC4800B8892F;
+			packageReferences = (
+				37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 37B718E72BD7DC4800B8892F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -187,6 +250,7 @@
 				37B719012BD7DC7D00B8892F /* .gitignore in Resources */,
 				FB8CDBE92BDA677D005DFE19 /* PaymentCell.xib in Resources */,
 				37B718F92BD7DC4900B8892F /* LaunchScreen.storyboard in Resources */,
+				78F28D892BD982C300207C6D /* JoinView.storyboard in Resources */,
 				37B718F62BD7DC4900B8892F /* Assets.xcassets in Resources */,
 				FBC1D5B42BD7E89A0059EEB4 /* MypageView.storyboard in Resources */,
 				37B718F12BD7DC4800B8892F /* Main.storyboard in Resources */,
@@ -200,15 +264,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				FB8CDBE82BDA677D005DFE19 /* PaymentCell.swift in Sources */,
 				FBC1D5B22BD7E88F0059EEB4 /* MypageController.swift in Sources */,
+				37BE429B2BD8FE2A002798DA /* Response.swift in Sources */,
+				37BE429E2BD930FB002798DA /* MainView.swift in Sources */,
 				37B719082BD7DF5700B8892F /* NetworkManager.swift in Sources */,
 				37B718EE2BD7DC4800B8892F /* ViewController.swift in Sources */,
+				37BE42AF2BDA019A002798DA /* MainHeaderView.swift in Sources */,
 				37B718EA2BD7DC4800B8892F /* AppDelegate.swift in Sources */,
+				78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */,
 				37B718F42BD7DC4800B8892F /* MegaStruct.xcdatamodeld in Sources */,
 				37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */,
+				37BE42A92BD93E55002798DA /* MainCollectionViewCell.swift in Sources */,
 				37B7190B2BD7DFBF00B8892F /* CoreDataManager.swift in Sources */,
+				37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */,
 				37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */,
+				37BE42A12BD9311E002798DA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +427,7 @@
 		};
 		37B718FE2BD7DC4900B8892F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37BE42992BD8F4CB002798DA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -387,6 +460,7 @@
 		};
 		37B718FF2BD7DC4900B8892F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37BE42992BD8F4CB002798DA /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,6 +513,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37BE42A32BD931AD002798DA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		37BE42A52BD931AD002798DA /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		37B718F22BD7DC4800B8892F /* MegaStruct.xcdatamodeld */ = {
