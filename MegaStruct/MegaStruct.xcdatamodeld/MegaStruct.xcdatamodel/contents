@@ -7,4 +7,11 @@
         <attribute name="nickName" optional="YES" attributeType="String"/>
         <attribute name="pwd" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="MyMovie" representedClassName="MyMovie" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="price" optional="YES" attributeType="String"/>
+        <attribute name="showDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="showTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
 </model>
