@@ -36,6 +36,8 @@
 		FB8CDBE92BDA677D005DFE19 /* PaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */; };
 		FBC1D5B22BD7E88F0059EEB4 /* MypageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */; };
 		FBC1D5B42BD7E89A0059EEB4 /* MypageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */; };
+		FBC1D5B62BD7F6BE0059EEB4 /* TicketingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */; };
+		FBC1D5B82BD7F6E20059EEB4 /* TicketingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC1D5B72BD7F6E20059EEB4 /* TicketingView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCell.xib; sourceTree = "<group>"; };
 		FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageController.swift; sourceTree = "<group>"; };
 		FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MypageView.storyboard; sourceTree = "<group>"; };
+		FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketingController.swift; sourceTree = "<group>"; };
+		FBC1D5B72BD7F6E20059EEB4 /* TicketingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TicketingView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				37BE429D2BD930FB002798DA /* MainView.swift */,
 				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
 				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
+				FBC1D5B72BD7F6E20059EEB4 /* TicketingView.storyboard */,
 				FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */,
 			);
 			path = View;
@@ -176,6 +181,7 @@
 				78F28D7D2BD8AB8900207C6D /* LoginController.swift */,
 				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 				37BE42A02BD9311E002798DA /* MainViewController.swift */,
+				FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
 				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
 			);
 			path = Controller;
@@ -268,6 +274,7 @@
 				788598642BDD0BAC00008EC4 /* LaunchScreen.storyboard in Resources */,
 				37B719012BD7DC7D00B8892F /* .gitignore in Resources */,
 				FB8CDBE92BDA677D005DFE19 /* PaymentCell.xib in Resources */,
+				FBC1D5B82BD7F6E20059EEB4 /* TicketingView.storyboard in Resources */,
 				37B718F62BD7DC4900B8892F /* Assets.xcassets in Resources */,
 				FBC1D5B42BD7E89A0059EEB4 /* MypageView.storyboard in Resources */,
 				37B718F12BD7DC4800B8892F /* Main.storyboard in Resources */,
@@ -300,6 +307,7 @@
 				37B7190B2BD7DFBF00B8892F /* CoreDataManager.swift in Sources */,
 				78F320F32BDBCF92000E6887 /* User+CoreDataProperties.swift in Sources */,
 				37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */,
+				FBC1D5B62BD7F6BE0059EEB4 /* TicketingController.swift in Sources */,
 				37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */,
 				37BE42A12BD9311E002798DA /* MainViewController.swift in Sources */,
 			);
