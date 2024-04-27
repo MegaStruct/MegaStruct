@@ -116,8 +116,6 @@
 				37BE429F2BD93102002798DA /* Controller */,
 				37B718ED2BD7DC4800B8892F /* ViewController.swift */,
 				37B718EF2BD7DC4800B8892F /* Main.storyboard */,
-				FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
-				FBC1D5B72BD7F6E20059EEB4 /* TicketingView.storyboard */,
 				37B718F52BD7DC4900B8892F /* Assets.xcassets */,
 				788598662BDD0BAC00008EC4 /* LaunchScreen.storyboard */,
 				37B718FA2BD7DC4900B8892F /* Info.plist */,
@@ -171,6 +169,7 @@
 				37BE429D2BD930FB002798DA /* MainView.swift */,
 				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
 				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
+				FBC1D5B72BD7F6E20059EEB4 /* TicketingView.storyboard */,
 				FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */,
 			);
 			path = View;
@@ -182,6 +181,7 @@
 				78F28D7D2BD8AB8900207C6D /* LoginController.swift */,
 				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 				37BE42A02BD9311E002798DA /* MainViewController.swift */,
+				FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
 				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
 			);
 			path = Controller;
