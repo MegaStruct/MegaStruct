@@ -36,10 +36,12 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         profileView.addGestureRecognizer(tapGesture)
         
         //포인트 색 입히기
-        // myView 설정
+        // 내 정보 view 설정
         myView.layer.borderWidth = 1.0
         myView.layer.borderColor = UIColor.megaRed.cgColor
         myView.layer.cornerRadius = 25.0
+        myView.backgroundColor = UIColor.whiteGray
+        
         //한마디 View 설정
         wordView.layer.borderColor = UIColor.megaRed.cgColor
         wordView.layer.borderWidth = 1.0
