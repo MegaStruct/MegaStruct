@@ -17,11 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJs-ma-DxA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJs-ma-DxA">
                                 <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkX-2T-Cfb">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1102"/>
+                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qkX-2T-Cfb">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1793"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bfw-3Y-suI">
                                                 <rect key="frame" x="121.66666666666669" y="26" width="150" height="150"/>
@@ -87,7 +89,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vdG-fa-PFI">
+                                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vdG-fa-PFI">
                                                 <rect key="frame" x="0.0" y="673" width="393" height="330"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -178,37 +180,14 @@
                                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-vZ-gPR">
-                                                <rect key="frame" x="20" y="20" width="90" height="42"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                                <connections>
-                                                    <action selector="addButton:" destination="iEk-mW-e4o" eventType="touchUpInside" id="uCR-ux-3b8"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="qkX-2T-Cfb" firstAttribute="top" secondItem="HJs-ma-DxA" secondAttribute="top" id="DBc-bZ-jd5"/>
-                                    <constraint firstItem="qkX-2T-Cfb" firstAttribute="centerX" secondItem="HJs-ma-DxA" secondAttribute="centerX" id="FUp-v1-nZn"/>
-                                    <constraint firstAttribute="trailing" secondItem="qkX-2T-Cfb" secondAttribute="trailing" id="hWd-ud-slx"/>
-                                    <constraint firstItem="qkX-2T-Cfb" firstAttribute="leading" secondItem="HJs-ma-DxA" secondAttribute="leading" id="iZl-0R-9s3"/>
-                                    <constraint firstAttribute="bottom" secondItem="qkX-2T-Cfb" secondAttribute="bottom" constant="-309" id="wBB-vy-bqb"/>
-                                    <constraint firstItem="qkX-2T-Cfb" firstAttribute="height" secondItem="HJs-ma-DxA" secondAttribute="height" constant="309" id="zOY-cF-EG1"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1VF-An-4Y5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="HJs-ma-DxA" firstAttribute="trailing" secondItem="1VF-An-4Y5" secondAttribute="trailing" id="9tx-fD-Ph0"/>
-                            <constraint firstAttribute="bottom" secondItem="HJs-ma-DxA" secondAttribute="bottom" id="U5Y-Dq-dDq"/>
-                            <constraint firstItem="HJs-ma-DxA" firstAttribute="top" secondItem="Mz9-SX-tNZ" secondAttribute="top" constant="59" id="qQj-De-dkF"/>
-                            <constraint firstItem="HJs-ma-DxA" firstAttribute="leading" secondItem="1VF-An-4Y5" secondAttribute="leading" id="zsG-v9-4I0"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="idLabel" destination="2lt-CI-eQT" id="GFY-gN-Hh5"/>
@@ -220,6 +199,7 @@
                         <outlet property="profileView" destination="bfw-3Y-suI" id="eYh-8s-SHX"/>
                         <outlet property="scrollView" destination="HJs-ma-DxA" id="3c3-eL-FZV"/>
                         <outlet property="tableView" destination="vdG-fa-PFI" id="yuA-Jv-xwT"/>
+                        <outlet property="totalView" destination="qkX-2T-Cfb" id="cgi-it-Gev"/>
                         <outlet property="wordView" destination="S0o-oh-bIS" id="Edy-GP-aL9"/>
                     </connections>
                 </viewController>
@@ -235,7 +215,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

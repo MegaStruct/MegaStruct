@@ -22,7 +22,6 @@ class PaymentCell: UITableViewCell {
         //예매내역
         payView.layer.borderColor = UIColor.megaRed.cgColor
         payView.layer.borderWidth = 1.0
-        
     }
     
     // CoreDataManager 인스턴스 생성

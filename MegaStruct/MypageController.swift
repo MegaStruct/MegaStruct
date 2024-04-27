@@ -9,6 +9,7 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var wordView: UIView!
+    @IBOutlet weak var totalView: UIView!
     
     var reservations: [NSManagedObject] = []
     // CoreDataManager 인스턴스 생성
@@ -60,15 +61,18 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         
         // 테이블 뷰의 높이 계산
         let tableViewHeight = CGFloat(reservations.count) * 330 // 예매 내역 셀 높이 * 예매 내역 수
+        // 스크롤 가능한 전체 컨텐츠의 높이 계산
+        let totalContentHeight = tableViewHeight + myView.frame.height + wordView.frame.height + 400
         
         // 테이블 뷰의 프레임 조정
         tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableViewHeight)
         
+        // totalView의 높이 설정
+        totalView.frame = CGRect(x: totalView.frame.origin.x, y: totalView.frame.origin.y, width: totalView.frame.size.width, height: totalContentHeight)
+            
         // 스크롤 뷰의 컨텐츠 사이즈 설정
-        scrollView.contentSize = CGSize(width: view.frame.width, height: tableViewHeight)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: totalContentHeight)
         
-        //스크롤이 가려지지 않게 여백?공간 추가
-        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tableViewHeight, right: 0)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,6 +83,11 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     func fetchReservations() {
         // CoreDataManager를 사용하여 예매 내역을 가져옴
         reservations = coreDataManager.fetchMovies()
+        
+        if reservations.isEmpty { // 가져온 데이터가 비어 있는지 확인
+            return
+        }
+        
         tableView.reloadData()
     }
     
@@ -103,14 +112,23 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     
     //예매 내역 삭제하기
     func deleteCell(at indexPath: IndexPath) {
+        // 배열이 비어있는지 확인
+        guard !reservations.isEmpty else {
+            return // 배열이 비어있으면 삭제 작업을 수행하지 않음
+        }
+            
         let deletedReservation = reservations.remove(at: indexPath.row)
         coreDataManager.deleteMovie(movie: deletedReservation)
-        
+            
         tableView.deleteRows(at: [indexPath], with: .fade)
-        
-        // 삭제 후 남은 예매 내역으로 스크롤 뷰의 높이 조정
-        scrollView.contentSize.height -= 330
-        
+            
+        // 삭제 후 남은 예매 내역이 없을 때에만 스크롤 뷰의 높이 조정
+        if reservations.isEmpty {
+            scrollView.contentSize.height = 0
+        } else {
+            // 남은 예매 내역이 있을 경우에는 스크롤 뷰의 높이를 조정
+            scrollView.contentSize.height -= 330
+        }
     }
     
     //프로필 사진 선택하기
@@ -152,26 +170,6 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var nicknameLabel2: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
-    
-    
-    // 임시로 코어데이터 추가할라고
-    @IBAction func addButton(_ sender: Any) {
-        addTemporaryReservation() // 버튼이 탭될 때 임시 예매 내역 추가
-    }
-    // 임시로 예매 내역을 추가하는 기능
-    func addTemporaryReservation() {
-        // 임시 데이터 생성
-        let title = "임시 예매"
-        let showDate = Date()
-        let showTime = Date()
-        let price = "10000"
-            
-        // CoreDataManager를 사용하여 임시 데이터 저장
-        coreDataManager.saveMovie(title: title, showDate: showDate, showTime: showTime, price: price)
-            
-        // 예매 내역 가져오기
-        fetchReservations()
-    }
     
 }
 
