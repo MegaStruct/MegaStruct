@@ -112,15 +112,15 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0y-1v-eil">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2024.04.27" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0y-1v-eil">
                                                         <rect key="frame" x="137" y="127" width="190" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wz-AU-HQ1">
-                                                        <rect key="frame" x="27" y="127" width="42" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wz-AU-HQ1">
+                                                        <rect key="frame" x="27" y="127" width="56" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
@@ -160,6 +160,11 @@
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="text.secureTextEntry">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0CY-ka-67R">
                                                         <rect key="frame" x="0.0" y="109" width="353" height="1"/>
@@ -190,11 +195,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="birthLabel" destination="i0y-1v-eil" id="s1Q-dI-fla"/>
                         <outlet property="idLabel" destination="2lt-CI-eQT" id="GFY-gN-Hh5"/>
                         <outlet property="myView" destination="Nep-81-esi" id="Yje-em-bMu"/>
                         <outlet property="nameLabel" destination="bFl-rR-PYD" id="chz-2R-HhM"/>
-                        <outlet property="nicknameLabel" destination="jyv-JB-c6E" id="B3c-8v-ZfP"/>
-                        <outlet property="nicknameLabel2" destination="i0y-1v-eil" id="PKA-bk-AGd"/>
+                        <outlet property="nicknameLabel" destination="jyv-JB-c6E" id="TyA-SK-YFW"/>
                         <outlet property="passwordLabel" destination="Uf2-eI-eK3" id="vmX-7i-zAa"/>
                         <outlet property="profileView" destination="bfw-3Y-suI" id="eYh-8s-SHX"/>
                         <outlet property="scrollView" destination="HJs-ma-DxA" id="3c3-eL-FZV"/>
@@ -205,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41y-fC-Y82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2105" y="-545"/>
+            <point key="canvasLocation" x="-3500" y="-837"/>
         </scene>
     </scenes>
     <resources>

@@ -43,7 +43,17 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         //한마디 View 설정
         wordView.layer.borderColor = UIColor.megaRed.cgColor
         wordView.layer.borderWidth = 1.0
+        
+        // 내 정보
+        nicknameLabel.text = nicknameText
+        nameLabel.text = name
+        birthLabel.text = birth
+        idLabel.text = id
+        let hiddenText = String(repeating: "•", count: passwordText.count)
+        passwordLabel.text = hiddenText
+        
     }
+    
     // 프로필 사진 변경
     @objc func imageTapped() {
         // 이미지를 터치했을 때 수행할 동작: 이미지 선택
@@ -165,12 +175,19 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     // 내 정보 데이터들 받아오기
+    
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var nicknameLabel2: UILabel!
+    @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
     
+    //내 정보 받아오기
+    let nicknameText = "구리구리 쇠똥구리"
+    let name = "홍길동"
+    let birth = "2024.04.27"
+    let id = "megastruct123"
+    let passwordText = "megapassword1234"
 }
 
 
