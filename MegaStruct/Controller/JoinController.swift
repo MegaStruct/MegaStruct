@@ -40,6 +40,7 @@ final class JoinController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     func hideAllErrorLabels() {
         alertNickNameLabel.isHidden = true
         alertIdLabel.isHidden = true
@@ -56,6 +57,7 @@ final class JoinController: UIViewController {
     private func hideErrorLabel(_ label: UILabel) {
         label.isHidden = true
     }
+    
     @objc func keyboardWillShow(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
@@ -66,21 +68,25 @@ final class JoinController: UIViewController {
             self.view.frame.origin.y = -overlapHeight
         }
     }
+    
     @objc func keyboardWillHide(_ notification: Notification) {
         self.view.frame.origin.y = 0
     }
+    
     func customTextField(_ textField: UITextField) {
         textField.layer.cornerRadius = 25.0
         textField.layer.masksToBounds = true
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         textField.leftViewMode = .always
     }
+    
     @objc func validateId() {
         let pattern = "^[a-z0-9]{6,}$"
         let errorMessage = "영문 소문자와 숫자만 사용해 주세요!"
-        textFieldCheck(joinIdTextField, pattern, errorMessage, alertIdLabel)
         validateAllFields()
+//        textFieldCheck(joinIdTextField, pattern, errorMessage, alertIdLabel)
     }
+    
     @objc func validatePassword() {
         let pattern = "^[a-z0-9]{6,}$"
         let errorMessage = "영문 소문자와 숫자만 사용해 주세요!"
@@ -93,6 +99,7 @@ final class JoinController: UIViewController {
             joinPwdCheckTextField.isEnabled = false // joinPwdCheckTextField 비활성화
         }
     }
+    
     @objc func validatePasswordCheck() {
         guard let pwd = joinPwdTextField.text, !pwd.isEmpty else {
             print("Password is empty")
@@ -110,6 +117,7 @@ final class JoinController: UIViewController {
         }
         validateAllFields()
     }
+    
     @objc func validateBirthDate() {
         guard let birthDateText = joinBirthDateTextField.text else { return }
         let isValid = birthDateText.count == 8 && // 8자리인지 확인
@@ -121,6 +129,7 @@ final class JoinController: UIViewController {
             alertBirthLabel.text = "8자리 숫자로 입력해주세요."
         }
     }
+    
     private func textFieldCheck(_ textField: UITextField, _ pattern: String, _ errorMessage: String, _ errorLabel: UILabel) -> Bool {
         guard let text = textField.text else { return false }
         let regex = try? NSRegularExpression(pattern: pattern)
@@ -138,6 +147,7 @@ final class JoinController: UIViewController {
         }
         return isValid
     }
+    
     private func validateAllFields() {
         // 모든 필드의 유효성 검사 통과 여부 확인
         let isIdValid = textFieldCheck(joinIdTextField, "^[a-z0-9]{6,}$", "영문 소문자와 숫자만 사용해 주세요!", alertIdLabel)
@@ -146,9 +156,11 @@ final class JoinController: UIViewController {
         let isNameValid = !(joinUserNameTextField.text?.isEmpty ?? true)
         let isBirthDateValid = joinBirthDateTextField.text?.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
+    
     @IBAction func joinBtnOnClick(_ sender: UIButton) {
         saveJoinUserData()
     }
+    
     private func saveJoinUserData() {
         guard let context = self.persistentContainer?.viewContext else { return }
         guard let id = joinIdTextField.text, !id.isEmpty else {
