@@ -112,10 +112,6 @@
 				37BE429F2BD93102002798DA /* Controller */,
 				37B718ED2BD7DC4800B8892F /* ViewController.swift */,
 				37B718EF2BD7DC4800B8892F /* Main.storyboard */,
-				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
-				FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */,
-				FB8CDBE62BDA677D005DFE19 /* PaymentCell.swift */,
-				FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */,
 				37B718F52BD7DC4900B8892F /* Assets.xcassets */,
 				788598662BDD0BAC00008EC4 /* LaunchScreen.storyboard */,
 				37B718FA2BD7DC4900B8892F /* Info.plist */,
@@ -154,8 +150,8 @@
 		37B719092BD7DFAF00B8892F /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				37B7190A2BD7DFBF00B8892F /* CoreDataManager.swift */,
 				78F320F42BDBD2CD000E6887 /* UserData */,
+				37B7190A2BD7DFBF00B8892F /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -164,11 +160,12 @@
 			isa = PBXGroup;
 			children = (
 				37BE42A72BD93DFF002798DA /* Cell */,
+				78F28D7B2BD8AB6E00207C6D /* LoginView.storyboard */,
+				78F320F52BDC185A000E6887 /* JoinView.storyboard */,
 				37BE429D2BD930FB002798DA /* MainView.swift */,
 				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
 				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
-				78F28D7B2BD8AB6E00207C6D /* LoginView.storyboard */,
-				78F320F52BDC185A000E6887 /* JoinView.storyboard */,
+				FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,9 +173,10 @@
 		37BE429F2BD93102002798DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				37BE42A02BD9311E002798DA /* MainViewController.swift */,
 				78F28D7D2BD8AB8900207C6D /* LoginController.swift */,
 				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
+				37BE42A02BD9311E002798DA /* MainViewController.swift */,
+				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */,
+				FB8CDBE62BDA677D005DFE19 /* PaymentCell.swift */,
+				FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -268,7 +268,6 @@
 				788598642BDD0BAC00008EC4 /* LaunchScreen.storyboard in Resources */,
 				37B719012BD7DC7D00B8892F /* .gitignore in Resources */,
 				FB8CDBE92BDA677D005DFE19 /* PaymentCell.xib in Resources */,
-				37B718F92BD7DC4900B8892F /* LaunchScreen.storyboard in Resources */,
 				37B718F62BD7DC4900B8892F /* Assets.xcassets in Resources */,
 				FBC1D5B42BD7E89A0059EEB4 /* MypageView.storyboard in Resources */,
 				37B718F12BD7DC4800B8892F /* Main.storyboard in Resources */,
@@ -458,7 +457,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MegaStruct/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = MypageView.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -491,7 +490,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MegaStruct/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = MypageView.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
