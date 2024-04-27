@@ -93,6 +93,7 @@ class LoginController: UIViewController {
     
     func moveMain() {
         let mainVC = MainViewController()
+        mainVC.modalPresentationStyle = .fullScreen
         present(mainVC, animated: true)
     }
     
