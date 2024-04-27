@@ -24,7 +24,7 @@ class PaymentCell: UITableViewCell {
     }
     
     // CoreDataManager 인스턴스 생성
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.shared
     
     var reservation: NSManagedObject?
     
