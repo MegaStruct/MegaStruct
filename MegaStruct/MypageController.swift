@@ -1,9 +1,8 @@
 
 import UIKit
 import CoreData
-import MegaStruct
 
-class MyPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MyPageController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -97,7 +96,12 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
         reservations = coreDataManager.fetchMovies()
         
         if reservations.isEmpty { // 가져온 데이터가 비어 있는지 확인
+            // 데이터가 비어 있으면 테이블 뷰를 숨깁니다.
+            tableView.isHidden = true
             return
+        } else {
+            // 데이터가 있으면 테이블 뷰를 표시합니다.
+            tableView.isHidden = false
         }
         
         tableView.reloadData()
@@ -177,8 +181,8 @@ class MyPageViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     // 내 정보 데이터들 받아오기
-    
     @IBOutlet weak var nicknameLabel: UILabel!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Page View Controller-->
+        <!--My Page Controller-->
         <scene sceneID="qrR-df-P62">
             <objects>
-                <viewController id="iEk-mW-e4o" customClass="MyPageViewController" customModule="MegaStruct" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iEk-mW-e4o" customClass="MyPageController" customModule="MegaStruct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mz9-SX-tNZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,12 +195,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="birthLabel" destination="i0y-1v-eil" id="s1Q-dI-fla"/>
-                        <outlet property="idLabel" destination="2lt-CI-eQT" id="GFY-gN-Hh5"/>
+                        <outlet property="birthLabel" destination="i0y-1v-eil" id="AND-pL-sm9"/>
+                        <outlet property="idLabel" destination="2lt-CI-eQT" id="ar6-dp-nVu"/>
                         <outlet property="myView" destination="Nep-81-esi" id="Yje-em-bMu"/>
-                        <outlet property="nameLabel" destination="bFl-rR-PYD" id="chz-2R-HhM"/>
-                        <outlet property="nicknameLabel" destination="jyv-JB-c6E" id="TyA-SK-YFW"/>
-                        <outlet property="passwordLabel" destination="Uf2-eI-eK3" id="vmX-7i-zAa"/>
+                        <outlet property="nameLabel" destination="bFl-rR-PYD" id="zqa-dG-UvY"/>
+                        <outlet property="nicknameLabel" destination="jyv-JB-c6E" id="yQf-YI-tYe"/>
+                        <outlet property="passwordLabel" destination="Uf2-eI-eK3" id="g5u-Vq-jyc"/>
                         <outlet property="profileView" destination="bfw-3Y-suI" id="eYh-8s-SHX"/>
                         <outlet property="scrollView" destination="HJs-ma-DxA" id="3c3-eL-FZV"/>
                         <outlet property="tableView" destination="vdG-fa-PFI" id="yuA-Jv-xwT"/>
