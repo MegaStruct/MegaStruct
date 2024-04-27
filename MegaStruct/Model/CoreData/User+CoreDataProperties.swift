@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MegaStruct
 //
-//  Created by A Hyeon on 4/26/24.
+//  Created by 신지연 on 2024/04/28.
 //
 //
 

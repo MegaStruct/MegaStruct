@@ -29,9 +29,16 @@
 		78F28D7C2BD8AB6E00207C6D /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F28D7B2BD8AB6E00207C6D /* LoginView.storyboard */; };
 		78F28D7E2BD8AB8900207C6D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F28D7D2BD8AB8900207C6D /* LoginController.swift */; };
 		78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F28D8A2BD982DA00207C6D /* JoinController.swift */; };
-		78F320F22BDBCF92000E6887 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F320F02BDBCF92000E6887 /* User+CoreDataClass.swift */; };
-		78F320F32BDBCF92000E6887 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F320F12BDBCF92000E6887 /* User+CoreDataProperties.swift */; };
 		78F320F62BDC185A000E6887 /* JoinView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F320F52BDC185A000E6887 /* JoinView.storyboard */; };
+		F4C5ACD62BDD5B6400E530DD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */; };
+		F4C5ACD82BDD5BAF00E530DD /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACD72BDD5BAF00E530DD /* SearchViewCell.swift */; };
+		F4C5ACDA2BDD5BCC00E530DD /* LastSearchedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACD92BDD5BCC00E530DD /* LastSearchedCell.swift */; };
+		F4C5ACE12BDD61D700E530DD /* MyMovie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACDF2BDD61D700E530DD /* MyMovie+CoreDataClass.swift */; };
+		F4C5ACE22BDD61D700E530DD /* MyMovie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACE02BDD61D700E530DD /* MyMovie+CoreDataProperties.swift */; };
+		F4C5ACE72BDD61FA00E530DD /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACE32BDD61FA00E530DD /* Search+CoreDataClass.swift */; };
+		F4C5ACE82BDD61FA00E530DD /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACE42BDD61FA00E530DD /* Search+CoreDataProperties.swift */; };
+		F4C5ACE92BDD61FA00E530DD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACE52BDD61FA00E530DD /* User+CoreDataClass.swift */; };
+		F4C5ACEA2BDD61FA00E530DD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5ACE62BDD61FA00E530DD /* User+CoreDataProperties.swift */; };
 		FB8CDBE82BDA677D005DFE19 /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8CDBE62BDA677D005DFE19 /* PaymentCell.swift */; };
 		FB8CDBE92BDA677D005DFE19 /* PaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */; };
 		FBC1D5B22BD7E88F0059EEB4 /* MypageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */; };
@@ -64,9 +71,16 @@
 		78F28D7B2BD8AB6E00207C6D /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		78F28D7D2BD8AB8900207C6D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		78F28D8A2BD982DA00207C6D /* JoinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinController.swift; sourceTree = "<group>"; };
-		78F320F02BDBCF92000E6887 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		78F320F12BDBCF92000E6887 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		78F320F52BDC185A000E6887 /* JoinView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JoinView.storyboard; sourceTree = "<group>"; };
+		F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F4C5ACD72BDD5BAF00E530DD /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		F4C5ACD92BDD5BCC00E530DD /* LastSearchedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSearchedCell.swift; sourceTree = "<group>"; };
+		F4C5ACDF2BDD61D700E530DD /* MyMovie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMovie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C5ACE02BDD61D700E530DD /* MyMovie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMovie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C5ACE32BDD61FA00E530DD /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C5ACE42BDD61FA00E530DD /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C5ACE52BDD61FA00E530DD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C5ACE62BDD61FA00E530DD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FB8CDBE62BDA677D005DFE19 /* PaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
 		FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCell.xib; sourceTree = "<group>"; };
 		FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageController.swift; sourceTree = "<group>"; };
@@ -154,7 +168,12 @@
 		37B719092BD7DFAF00B8892F /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				78F320F42BDBD2CD000E6887 /* UserData */,
+				F4C5ACE32BDD61FA00E530DD /* Search+CoreDataClass.swift */,
+				F4C5ACE42BDD61FA00E530DD /* Search+CoreDataProperties.swift */,
+				F4C5ACE52BDD61FA00E530DD /* User+CoreDataClass.swift */,
+				F4C5ACE62BDD61FA00E530DD /* User+CoreDataProperties.swift */,
+				F4C5ACDF2BDD61D700E530DD /* MyMovie+CoreDataClass.swift */,
+				F4C5ACE02BDD61D700E530DD /* MyMovie+CoreDataProperties.swift */,
 				37B7190A2BD7DFBF00B8892F /* CoreDataManager.swift */,
 			);
 			path = CoreData;
@@ -183,6 +202,7 @@
 				37BE42A02BD9311E002798DA /* MainViewController.swift */,
 				FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
 				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
+				F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,17 +213,10 @@
 				37BE42A82BD93E55002798DA /* MainCollectionViewCell.swift */,
 				FB8CDBE62BDA677D005DFE19 /* PaymentCell.swift */,
 				FB8CDBE72BDA677D005DFE19 /* PaymentCell.xib */,
+				F4C5ACD72BDD5BAF00E530DD /* SearchViewCell.swift */,
+				F4C5ACD92BDD5BCC00E530DD /* LastSearchedCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		78F320F42BDBD2CD000E6887 /* UserData */ = {
-			isa = PBXGroup;
-			children = (
-				78F320F02BDBCF92000E6887 /* User+CoreDataClass.swift */,
-				78F320F12BDBCF92000E6887 /* User+CoreDataProperties.swift */,
-			);
-			path = UserData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,22 +303,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C5ACE22BDD61D700E530DD /* MyMovie+CoreDataProperties.swift in Sources */,
 				37BE429B2BD8FE2A002798DA /* Response.swift in Sources */,
 				37BE429E2BD930FB002798DA /* MainView.swift in Sources */,
 				FB8CDBE82BDA677D005DFE19 /* PaymentCell.swift in Sources */,
 				FBC1D5B22BD7E88F0059EEB4 /* MypageController.swift in Sources */,
 				37B719082BD7DF5700B8892F /* NetworkManager.swift in Sources */,
 				37B718EE2BD7DC4800B8892F /* ViewController.swift in Sources */,
+				F4C5ACD82BDD5BAF00E530DD /* SearchViewCell.swift in Sources */,
 				37BE42AF2BDA019A002798DA /* MainHeaderView.swift in Sources */,
 				37B718EA2BD7DC4800B8892F /* AppDelegate.swift in Sources */,
-				78F320F22BDBCF92000E6887 /* User+CoreDataClass.swift in Sources */,
+				F4C5ACDA2BDD5BCC00E530DD /* LastSearchedCell.swift in Sources */,
+				F4C5ACE12BDD61D700E530DD /* MyMovie+CoreDataClass.swift in Sources */,
 				78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */,
 				37B718F42BD7DC4800B8892F /* MegaStruct.xcdatamodeld in Sources */,
 				37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */,
+				F4C5ACE72BDD61FA00E530DD /* Search+CoreDataClass.swift in Sources */,
+				F4C5ACE92BDD61FA00E530DD /* User+CoreDataClass.swift in Sources */,
+				F4C5ACEA2BDD61FA00E530DD /* User+CoreDataProperties.swift in Sources */,
 				78F28D7E2BD8AB8900207C6D /* LoginController.swift in Sources */,
 				37BE42A92BD93E55002798DA /* MainCollectionViewCell.swift in Sources */,
+				F4C5ACE82BDD61FA00E530DD /* Search+CoreDataProperties.swift in Sources */,
 				37B7190B2BD7DFBF00B8892F /* CoreDataManager.swift in Sources */,
-				78F320F32BDBCF92000E6887 /* User+CoreDataProperties.swift in Sources */,
+				F4C5ACD62BDD5B6400E530DD /* SearchViewController.swift in Sources */,
 				37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */,
 				FBC1D5B62BD7F6BE0059EEB4 /* TicketingController.swift in Sources */,
 				37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */,

@@ -13,6 +13,9 @@ final class CoreDataManager {
     
     // MARK: - properties
     
+    static let shared: CoreDataManager = CoreDataManager()
+    private init() { }
+    
     // AppDelegate에 접근하기 위한 프로퍼티
     private var appDelegate: AppDelegate {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -25,6 +28,8 @@ final class CoreDataManager {
     private var managedContext: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
+    
+    let modelName: String = "Search"
     
     // MARK: - methods
     
@@ -68,6 +73,55 @@ final class CoreDataManager {
             print("예매가 취소되었습니다.")
         } catch let error as NSError {
             print("예매 취소 실패: \(error), \(error.userInfo)")
+        }
+    }
+    
+    //최근검색어 조회
+    func fetchSearchData() -> [NSManagedObject] {
+        do {
+            let fetchRequest: NSFetchRequest<Search> = Search.fetchRequest()
+            let products = try managedContext.fetch(fetchRequest)
+            return products
+           } catch {
+               print("Error fetching data: \(error)")
+               return []
+        }
+    }
+    
+    //최근검색어 저장
+    func saveRecentSearch(idx: Int, keyword: String, completion: @escaping (Bool) -> Void){
+        guard let entity = NSEntityDescription.entity(forEntityName: modelName, in: managedContext)
+                else { return }
+        
+        if let search: Search = NSManagedObject(entity: entity, insertInto: managedContext) as? Search {
+            search.keyword = keyword
+            
+            do {
+                try managedContext.save()
+                completion(true)
+            } catch {
+                print("저장안됨")
+                completion(false)
+            }
+        }
+    }
+    
+    //word인 검색어 삭제
+    func delSearchData(word: String, completion: @escaping (Bool) -> Void) {
+        let request = Search.fetchRequest()
+
+        do {
+            let words = try managedContext.fetch(request)
+            let filteredWords = words.filter({ $0.keyword == word })
+
+            for filteredWord in filteredWords {
+                managedContext.delete(filteredWord)
+            }
+            try managedContext.save()
+            completion(true)
+        } catch {
+            print("삭제안됨")
+            completion(false)
         }
     }
 }

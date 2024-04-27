@@ -192,7 +192,7 @@ class TicketingController: UIViewController {
             
     // CoreData에 영화 예매 정보 저장하는 메서드
     private func saveMovieToCoreData() {
-        let coreDataManager = CoreDataManager()
+        let coreDataManager = CoreDataManager.shared
         
         // 필요한 영화 정보 가져오기
         guard let movieTitle = movieTitleLabel.text,

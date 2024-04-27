@@ -2,7 +2,7 @@
 import UIKit
 import CoreData
 
-class MyPageController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
@@ -12,16 +12,18 @@ class MyPageController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var reservations: [NSManagedObject] = []
     // CoreDataManager 인스턴스 생성
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.shared
         
+    var movie: Movie?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         tableView.dataSource = self
         tableView.delegate = self
-
-        fetchReservations()
         
+        fetchReservations()
+
         // TableView에 PaymentCell을 등록
         tableView.register(UINib(nibName: "PaymentCell", bundle: nil), forCellReuseIdentifier: "paymentCell")
         
