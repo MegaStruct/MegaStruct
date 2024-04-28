@@ -134,7 +134,6 @@ class SearchViewController: UIViewController{
         print(searchList)
         setUI()
         view.backgroundColor = .white
-
     }
     
     // MARK: - function

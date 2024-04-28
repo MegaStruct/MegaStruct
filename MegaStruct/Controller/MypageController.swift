@@ -61,17 +61,6 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
-    //네비게이션 바 숨기기
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated) 
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     // 프로필 사진 변경
     @objc func imageTapped() {
         // 이미지를 터치했을 때 수행할 동작: 이미지 선택

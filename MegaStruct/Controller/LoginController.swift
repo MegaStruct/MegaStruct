@@ -23,11 +23,7 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                self.moveMain()
-            } //자동로그인
-        }
+
         customTextField(userIdTextField)
         customTextField(userPwdTextField)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
@@ -92,9 +88,32 @@ class LoginController: UIViewController {
     
     
     func moveMain() {
-        let mainVC = MainViewController()
-        mainVC.modalPresentationStyle = .fullScreen
-        present(mainVC, animated: true)
+        
+        let myPageStoryboard = UIStoryboard(name: "MypageView", bundle: nil)
+        let myPageViewController = myPageStoryboard.instantiateViewController(withIdentifier: "MyPageController") as! MyPageController
+                                             
+        let tabbarController = UITabBarController()
+        tabbarController.setViewControllers([SearchViewController(),MainViewController(),myPageViewController], animated: true)
+                                             
+        if let items = tabbarController.tabBar.items {
+            items[0].image = .search
+            items[1].image = .category
+            items[2].image = .profile
+        }
+        tabbarController.tabBar.items?.forEach { $0.title = nil }
+        tabbarController.tabBar.items?.forEach {
+            $0.imageInsets = UIEdgeInsets(top: 15, left: 0, bottom: -15, right: 0)
+        }
+                                             
+        tabbarController.tabBar.backgroundColor = .megaRed //.white
+        tabbarController.tabBar.tintColor = .white
+        tabbarController.tabBar.unselectedItemTintColor = .black
+        tabbarController.tabBar.layer.cornerRadius = 34
+        tabbarController.tabBar.itemPositioning = .centered
+        tabbarController.selectedIndex = 1
+        tabbarController.modalPresentationStyle = .fullScreen
+
+        present(tabbarController, animated: true)
     }
     
     func shakeTextField(_ textField: UITextField) {
