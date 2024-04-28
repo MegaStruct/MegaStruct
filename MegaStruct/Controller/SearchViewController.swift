@@ -302,7 +302,7 @@ class SearchViewController: UIViewController{
                     self?.cardContent.reloadData()
                 }
             case .failure(let error):
-                print("updateSearchREsults()에서 에러남")
+                self?.printError(error)
             }
         }
     }
@@ -324,11 +324,9 @@ class SearchViewController: UIViewController{
                     }
                     DispatchQueue.main.async {
                         self.cardContent.reloadData()
-                        //self.cardContent.reloadItems(at: newIndexPaths)
-                        //self.cardContent.reconfigureItems(at: newIndexPaths)
                     }
                 case .failure(let error):
-                    print("loadMore 에러")
+                    self.printError(error)
                 }
             }
         }
@@ -360,6 +358,19 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
     }
+    
+    private func printError(_ error: Error) {
+        switch error {
+        case NetworkError.urlConversionFailure:
+            print("Url 변환 실패")
+        case NetworkError.dataFailure:
+            print("네트워크 오류")
+        case NetworkError.jsonDecodingFailure:
+            print("Json Decoding 실패")
+        default:
+            print(error.localizedDescription)
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -387,7 +398,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                             cell.movieImage.image = UIImage(data: data)
                         }
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        self.printError(error)
                         cell.movieImage.image = self.customNoPosterView.asImage()
                     }
                 }

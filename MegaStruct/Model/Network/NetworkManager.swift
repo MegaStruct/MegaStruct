@@ -62,7 +62,7 @@ final class NetworkManager {
         urlComponents.queryItems = [URLQueryItem(name: "language", value: "\(language)"), URLQueryItem(name: "page", value: "\(page)")]
         
         guard let url = urlComponents.url else {
-            // completion(.failure(<#T##Error#>))
+            completion(.failure(NetworkError.urlConversionFailure))
             return
         }
         
@@ -72,12 +72,12 @@ final class NetworkManager {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {
-                // completion(.failure(<#T##Error#>))
+                completion(.failure(error))
                 return
             }
             
             guard let data else {
-                // completion(.failure(<#T##Error#>))
+                completion(.failure(NetworkError.dataFailure))
                 return
             }
             
@@ -85,7 +85,7 @@ final class NetworkManager {
                 let response = try JSONDecoder().decode(Response.self, from: data)
                 completion(.success(response))
             } catch {
-                // completion(.failure(<#T##Error#>))
+                completion(.failure(NetworkError.jsonDecodingFailure))
             }
         }
         
@@ -100,7 +100,7 @@ final class NetworkManager {
         urlComponents.path = self.moviePosterPath + url
         
         guard let url = urlComponents.url else {
-            // completion(.failure(<#T##Error#>))
+            completion(.failure(NetworkError.urlConversionFailure))
             return
         }
         
@@ -110,12 +110,12 @@ final class NetworkManager {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error {
-                // completion(.failure(<#T##Error#>))
+                completion(.failure(error))
                 return
             }
             
             guard let data else {
-                // completion(.failure(<#T##Error#>))
+                completion(.failure(NetworkError.dataFailure))
                 return
             }
             
@@ -135,7 +135,7 @@ final class NetworkManager {
         urlComponents.queryItems = [URLQueryItem(name: "language", value: "ko"), URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "query", value: searchKeyword), URLQueryItem(name: "include_adult", value: "false")]
         
         guard let url = urlComponents.url else {
-            // completion(.failure(<#T##Error#>))
+            completion(.failure(NetworkError.urlConversionFailure))
             return
         }
         
@@ -153,7 +153,7 @@ final class NetworkManager {
                     let product = try JSONDecoder().decode(Response.self, from: data)
                     completion(.success(product))
                 } catch {
-                    completion(.failure(error))
+                    completion(.failure(NetworkError.jsonDecodingFailure))
                     print("Decode Error: \(error)")
                 }
             }

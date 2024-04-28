@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var controller: UIViewController?
         
-        if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") { //자동로그인있음
+        if let _ = UserDefaults.standard.string(forKey: "userIdForKey") { //자동로그인있음
             let myPageStoryboard = UIStoryboard(name: "MypageView", bundle: nil)
             let myPageViewController = myPageStoryboard.instantiateViewController(withIdentifier: "MyPageController") as! MyPageController
                                                  
