@@ -131,11 +131,9 @@ class LoginController: UIViewController {
         if let joinVC = storyboard.instantiateViewController(withIdentifier: "JoinController") as? JoinController {
             navigationController?.pushViewController(joinVC, animated: true)
             let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-                backBarButtonItem.tintColor = .megaRed
-                self.navigationItem.backBarButtonItem = backBarButtonItem
+            backBarButtonItem.tintColor = .megaRed
+            self.navigationItem.backBarButtonItem = backBarButtonItem
             joinVC.modalPresentationStyle = .fullScreen
-//            present(joinVC, animated: true, completion: nil)
         }
     }
-    
 }
