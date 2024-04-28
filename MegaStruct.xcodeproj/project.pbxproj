@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371624662BDE745A005F5B70 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371624652BDE745A005F5B70 /* String+Extension.swift */; };
+		372544D12BDB90BA007A8D57 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372544D02BDB90BA007A8D57 /* DetailView.swift */; };
+		372544D32BDB90ED007A8D57 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372544D22BDB90ED007A8D57 /* DetailViewController.swift */; };
+		372544D62BDB9584007A8D57 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 372544D52BDB9584007A8D57 /* Cosmos */; };
 		37B718EA2BD7DC4800B8892F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B718E92BD7DC4800B8892F /* AppDelegate.swift */; };
 		37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B718EB2BD7DC4800B8892F /* SceneDelegate.swift */; };
 		37B718EE2BD7DC4800B8892F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B718ED2BD7DC4800B8892F /* ViewController.swift */; };
@@ -48,6 +52,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		371624652BDE745A005F5B70 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		372544D02BDB90BA007A8D57 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		372544D22BDB90ED007A8D57 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		37B718E62BD7DC4800B8892F /* MegaStruct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MegaStruct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B718E92BD7DC4800B8892F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B718EB2BD7DC4800B8892F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372544D62BDB9584007A8D57 /* Cosmos in Frameworks */,
 				37BE42A42BD931AD002798DA /* SnapKit in Frameworks */,
 				37BE42A62BD931AD002798DA /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -143,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				37B719032BD7DE3C00B8892F /* UIColor+Extension.swift */,
+				371624652BDE745A005F5B70 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 				37BE429D2BD930FB002798DA /* MainView.swift */,
 				37BE42AE2BDA019A002798DA /* MainHeaderView.swift */,
 				37BE42B22BDABA85002798DA /* MainFooterView.swift */,
+				372544D02BDB90BA007A8D57 /* DetailView.swift */,
 				FBC1D5B72BD7F6E20059EEB4 /* TicketingView.storyboard */,
 				FBC1D5B32BD7E89A0059EEB4 /* MypageView.storyboard */,
 			);
@@ -200,9 +210,10 @@
 				78F28D7D2BD8AB8900207C6D /* LoginController.swift */,
 				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 				37BE42A02BD9311E002798DA /* MainViewController.swift */,
-				FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
-				FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
-				F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */,
+				372544D22BDB90ED007A8D57 /* DetailViewController.swift */,
+                		FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
+                		FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
+                		F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,6 +249,7 @@
 			packageProductDependencies = (
 				37BE42A32BD931AD002798DA /* SnapKit */,
 				37BE42A52BD931AD002798DA /* SnapKit-Dynamic */,
+				372544D52BDB9584007A8D57 /* Cosmos */,
 			);
 			productName = MegaStruct;
 			productReference = 37B718E62BD7DC4800B8892F /* MegaStruct.app */;
@@ -269,6 +281,7 @@
 			mainGroup = 37B718DD2BD7DC4800B8892F;
 			packageReferences = (
 				37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				372544D42BDB9584007A8D57 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 37B718E72BD7DC4800B8892F /* Products */;
 			projectDirPath = "";
@@ -316,6 +329,8 @@
 				F4C5ACDA2BDD5BCC00E530DD /* LastSearchedCell.swift in Sources */,
 				F4C5ACE12BDD61D700E530DD /* MyMovie+CoreDataClass.swift in Sources */,
 				78F28D8B2BD982DA00207C6D /* JoinController.swift in Sources */,
+				372544D32BDB90ED007A8D57 /* DetailViewController.swift in Sources */,
+				371624662BDE745A005F5B70 /* String+Extension.swift in Sources */,
 				37B718F42BD7DC4800B8892F /* MegaStruct.xcdatamodeld in Sources */,
 				37B718EC2BD7DC4800B8892F /* SceneDelegate.swift in Sources */,
 				F4C5ACE72BDD61FA00E530DD /* Search+CoreDataClass.swift in Sources */,
@@ -329,6 +344,7 @@
 				37BE42B32BDABA85002798DA /* MainFooterView.swift in Sources */,
 				FBC1D5B62BD7F6BE0059EEB4 /* TicketingController.swift in Sources */,
 				37B719042BD7DE3C00B8892F /* UIColor+Extension.swift in Sources */,
+				372544D12BDB90BA007A8D57 /* DetailView.swift in Sources */,
 				37BE42A12BD9311E002798DA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +580,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		372544D42BDB9584007A8D57 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 		37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -575,6 +599,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		372544D52BDB9584007A8D57 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 372544D42BDB9584007A8D57 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
 		37BE42A32BD931AD002798DA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37BE42A22BD931AD002798DA /* XCRemoteSwiftPackageReference "SnapKit" */;

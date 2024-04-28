@@ -92,7 +92,7 @@ final class NetworkManager {
         task.resume()
     }
     
-    func fetchPosterUrlImage(url: String, completion: @escaping ((Result<Data, Error>) -> Void)) {
+    func fetchUrlImage(url: String, completion: @escaping ((Result<Data, Error>) -> Void)) {
         var urlComponents = URLComponents()
         
         urlComponents.scheme = self.scheme
@@ -132,7 +132,7 @@ final class NetworkManager {
         urlComponents.host = self.movieHost
         urlComponents.path = self.searchMoviePath
         
-        urlComponents.queryItems = [URLQueryItem(name: "language", value: "en-KR"), URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "query", value: searchKeyword), URLQueryItem(name: "include_adult", value: "false")]
+        urlComponents.queryItems = [URLQueryItem(name: "language", value: "ko"), URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "query", value: searchKeyword), URLQueryItem(name: "include_adult", value: "false")]
         
         guard let url = urlComponents.url else {
             // completion(.failure(<#T##Error#>))

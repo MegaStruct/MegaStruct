@@ -380,14 +380,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.movieImage.image = customLoadingView.asImage()
             
             if let url = movieResult[indexPath.row].posterPath {
-                if let imageURL = URL(string: "https://image.tmdb.org/t/p/original" + url) {
-                    URLSession.shared.dataTask(with: imageURL){ (imageData, _, _) in
-                        if let imageData = imageData {
-                            DispatchQueue.main.async {
-                                cell.movieImage.image = UIImage(data: imageData)
-                            }
+                networkManager.fetchUrlImage(url: url) { result in
+                    switch result {
+                    case .success(let data):
+                        DispatchQueue.main.async {
+                            cell.movieImage.image = UIImage(data: data)
                         }
-                    }.resume()
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        cell.movieImage.image = self.customNoPosterView.asImage()
+                    }
                 }
             }else {
                 cell.movieImage.image = customNoPosterView.asImage()
@@ -416,7 +418,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == cardContent {
-            //세부페이지 이동
+            let detailVC = DetailViewController()
+            detailVC.bind(movie: movieResult[indexPath.row])
+            present(detailVC, animated: true)
         }else {
             let text = searchList[indexPath.row]
             searchBar.searchTextField.text = text

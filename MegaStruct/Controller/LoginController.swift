@@ -113,6 +113,9 @@ class LoginController: UIViewController {
         tabbarController.selectedIndex = 1
         tabbarController.modalPresentationStyle = .fullScreen
 
+        self.userIdTextField.text = ""
+        self.userPwdTextField.text = ""
+        
         present(tabbarController, animated: true)
     }
     
