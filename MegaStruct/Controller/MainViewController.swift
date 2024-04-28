@@ -58,7 +58,7 @@ final class MainViewController: UIViewController {
             case .success(let data):
                 self.upcomingMovies = data.results
             case .failure(let error):
-                print(error.localizedDescription)
+                self.printError(error)
             }
             group.leave()
         }
@@ -72,7 +72,7 @@ final class MainViewController: UIViewController {
             case .success(let data):
                 self.nowPlayingMovies = data.results
             case .failure(let error):
-                print(error.localizedDescription)
+                self.printError(error)
             }
             group.leave()
         }
@@ -86,7 +86,7 @@ final class MainViewController: UIViewController {
             case .success(let data):
                 self.popularMovies = data.results
             case .failure(let error):
-                print(error.localizedDescription)
+                self.printError(error)
             }
             group.leave()
         }
@@ -100,7 +100,7 @@ final class MainViewController: UIViewController {
             case .success(let data):
                 self.topRatedMovies = data.results
             case .failure(let error):
-                print(error.localizedDescription)
+                self.printError(error)
             }
             group.leave()
         }
@@ -113,6 +113,19 @@ final class MainViewController: UIViewController {
         mainView.collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
         mainView.collectionView.register(MainHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MainHeaderView")
         mainView.collectionView.register(MainFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "MainFooterView")
+    }
+    
+    private func printError(_ error: Error) {
+        switch error {
+        case NetworkError.urlConversionFailure:
+            print("Url 변환 실패")
+        case NetworkError.dataFailure:
+            print("네트워크 오류")
+        case NetworkError.jsonDecodingFailure:
+            print("Json Decoding 실패")
+        default:
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -196,6 +209,8 @@ extension MainViewController: UICollectionViewDataSource {
                             cell.bind(movie: self.upcomingMovies[indexPath.row], imageData: data)
                         }
                     case .failure(let error):
+                        self.printError(error)
+                        
                         DispatchQueue.main.async {
                             cell.bind(movie: self.upcomingMovies[indexPath.row], imageData: nil)
                         }
@@ -213,6 +228,8 @@ extension MainViewController: UICollectionViewDataSource {
                             cell.bind(movie: self.nowPlayingMovies[indexPath.row], imageData: data)
                         }
                     case .failure(let error):
+                        self.printError(error)
+                        
                         DispatchQueue.main.async {
                             cell.bind(movie: self.nowPlayingMovies[indexPath.row], imageData: nil)
                         }
@@ -230,6 +247,8 @@ extension MainViewController: UICollectionViewDataSource {
                             cell.bind(movie: self.popularMovies[indexPath.row], imageData: data)
                         }
                     case .failure(let error):
+                        self.printError(error)
+                        
                         DispatchQueue.main.async {
                             cell.bind(movie: self.popularMovies[indexPath.row], imageData: nil)
                         }
@@ -247,6 +266,8 @@ extension MainViewController: UICollectionViewDataSource {
                             cell.bind(movie: self.topRatedMovies[indexPath.row], imageData: data)
                         }
                     case .failure(let error):
+                        self.printError(error)
+                        
                         DispatchQueue.main.async {
                             cell.bind(movie: self.topRatedMovies[indexPath.row], imageData: nil)
                         }
