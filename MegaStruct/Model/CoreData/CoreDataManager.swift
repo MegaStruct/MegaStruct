@@ -124,4 +124,19 @@ final class CoreDataManager {
             completion(false)
         }
     }
+    
+    // 사용자 정보 가져오기
+    func fetchUserData(forUserId userId: String) -> User? {
+        let fetchRequest = NSFetchRequest<User>(entityName: "User")
+        // 해당 사용자의 ID와 일치하는 데이터를 가져오기
+        fetchRequest.predicate = NSPredicate(format: "id == %@", userId)
+        
+        do {
+            let users = try managedContext.fetch(fetchRequest)
+            return users.first // 해당 ID를 가진 사용자의 정보를 반환
+        } catch let error as NSError {
+            print("Could not fetch user data")
+            return nil
+        }
+    }
 }

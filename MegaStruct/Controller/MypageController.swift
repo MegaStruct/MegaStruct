@@ -47,14 +47,18 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         wordView.layer.borderColor = UIColor.megaRed.cgColor
         wordView.layer.borderWidth = 1.0
         
-        // 내 정보
-        nicknameLabel.text = nicknameText
-        nameLabel.text = name
-        birthLabel.text = birth
-        idLabel.text = id
-        let hiddenText = String(repeating: "•", count: passwordText.count)
-        passwordLabel.text = hiddenText
-        
+        // 현재 로그인된 사용자의 ID를 전달하여 사용자 정보를 가져와 UI에 표시
+//        if let userId = isLoggedIn { //근데 아직 isLoggedInt은 내가 생각해 놓은 것,,
+//            if let userData = coreDataManager.fetchUserData(forUserId: userId) {
+//                // 사용자 정보를 UI에 표시
+//                nicknameLabel.text = userData.nickName
+//                nameLabel.text = userData.name
+//                birthLabel.text = "\(userData.birthDate)"
+//                idLabel.text = userData.id
+//                let hiddenText = String(repeating: "•", count: userData.pwd!.count)
+//                passwordLabel.text = hiddenText
+//            }
+//        }
     }
     
     // 프로필 사진 변경
