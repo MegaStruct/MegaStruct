@@ -27,11 +27,16 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
         configureData()
         configureCollectionView()
     }
     
     // MARK: - methods
+    private func configureUI() {
+        self.tabBarController?.tabBar.setUpUITabBar()
+    }
+    
     private func configureData() {
         let dispatchGroup = DispatchGroup()
         

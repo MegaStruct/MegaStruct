@@ -132,7 +132,7 @@ final class NetworkManager {
         urlComponents.host = self.movieHost
         urlComponents.path = self.searchMoviePath
         
-        urlComponents.queryItems = [URLQueryItem(name: "language", value: "en-KR"), URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "query", value: searchKeyword), URLQueryItem(name: "include_adult", value: "false")]
+        urlComponents.queryItems = [URLQueryItem(name: "language", value: "ko"), URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "query", value: searchKeyword), URLQueryItem(name: "include_adult", value: "false")]
         
         guard let url = urlComponents.url else {
             // completion(.failure(<#T##Error#>))

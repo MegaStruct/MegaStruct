@@ -42,7 +42,11 @@ final class DetailViewController: UIViewController {
     }
     
     @objc private func didTappedTicketingButton() {
-        print("예매 화면으로 이동")
+        let ticketingSB = UIStoryboard(name: "TicketingView", bundle: nil)
+        guard let ticketingVC = ticketingSB.instantiateViewController(withIdentifier: "TicketingVC") as? TicketingController else { return }
+        ticketingVC.movie = movie
+        
+        present(ticketingVC, animated: true)
     }
     
     func bind(movie: Movie) {

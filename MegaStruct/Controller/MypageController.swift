@@ -165,9 +165,6 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     //로그아웃 버튼 클릭 시
     @IBAction func logoutTapped(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
-        
         // 로그인 상태 삭제
         UserDefaults.standard.removeObject(forKey: "userIdForKey")
         
@@ -179,7 +176,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let loginStoryboard = UIStoryboard(name: "LoginView", bundle: nil)
             if let loginVC = loginStoryboard.instantiateViewController(withIdentifier: "LoginController") as? LoginController {
                 loginVC.modalPresentationStyle = .fullScreen
-                self.present(loginVC, animated: true, completion: nil)
+                self.dismiss(animated: true)
             }
         }
         // 취소 액션 추가

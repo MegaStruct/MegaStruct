@@ -4,8 +4,15 @@ import CoreData
 
 class TicketingController: UIViewController {
 
+    private let networkManager = NetworkManager.shared
+    
+    var movie: Movie?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 영화 정보 초기화
+        configureUI()
         
         //시간버튼) 앱 실행 시 현재 시간 버튼에 표시
         updateTimeButton(date: selectedTime)
@@ -18,11 +25,30 @@ class TicketingController: UIViewController {
         
         // 총 가격 레이블 업데이트
         updateTotalPriceLabel()
+    }
+    
+    private func configureUI() {
+        if let sheetPresentationController = sheetPresentationController {
+            sheetPresentationController.detents = [ .large()]
+        }
+        sheetPresentationController?.prefersGrabberVisible = true
         
-        // 영화 정보 초기화 (임시 값 설정)
-        movieTitleLabel.text = "Home Alone"
-        movieReleaseLabel.text = "2024/04/24"
-        movieVoteAverageLabel.text = "9.5"
+        movieTitleLabel.text = movie?.title
+        movieReleaseLabel.text = movie?.releaseDate
+        movieVoteAverageLabel.text = String((movie?.voteAverage ?? 0.0) / 2.0)
+        
+        if let url = movie?.posterPath {
+            networkManager.fetchUrlImage(url: url) { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async { [self] in
+                        moviePosterImageView.image = UIImage(data: data)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     
     // 영화 정보 표시
@@ -164,7 +190,7 @@ class TicketingController: UIViewController {
         }
     }
     
-    // 결제하기 버튼 클릭 시 ( alert로 확인 창 띄우기 -> 확인 클릭 시 메인 페이지로 이동, 값들 CoreData에 추가 )
+    // 결제하기 버튼 클릭 시 ( alert로 확인 창 띄우기 -> 확인 클릭 시 상세 페이지로 이동, 값들 CoreData에 추가 )
     @IBAction func payTapped(_ sender: Any) {
         // 확인 창 생성
         let alertController = UIAlertController(title: "영화 예매", message: "결제하시겠습니까?", preferredStyle: .alert)
@@ -176,7 +202,8 @@ class TicketingController: UIViewController {
             // CoreData에 영화 정보 저장
             self.saveMovieToCoreData()
                     
-            // 마이페이지로 이동? 메인화면으로 이동? 추가
+            // 상세 화면으로 이동
+            self.dismiss(animated: true)
         }
                 
         // 취소 버튼 생성
