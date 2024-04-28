@@ -211,9 +211,9 @@
 				78F28D8A2BD982DA00207C6D /* JoinController.swift */,
 				37BE42A02BD9311E002798DA /* MainViewController.swift */,
 				372544D22BDB90ED007A8D57 /* DetailViewController.swift */,
-                FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
-                FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
-                F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */,
+                		FBC1D5B52BD7F6BE0059EEB4 /* TicketingController.swift */,
+                		FBC1D5B12BD7E88F0059EEB4 /* MypageController.swift */,
+                		F4C5ACD52BDD5B6400E530DD /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
