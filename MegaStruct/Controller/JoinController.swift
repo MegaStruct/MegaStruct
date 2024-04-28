@@ -203,7 +203,7 @@ final class JoinController: UIViewController {
             print("Birth Date: \(saveJoinData.birthDate)")
             print("Password: \(saveJoinData.pwd ?? "")")
             print("----")
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
         } catch {
             print("Error saving user data: \(error)")
         }
