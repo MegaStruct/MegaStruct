@@ -48,18 +48,28 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         wordView.layer.borderColor = UIColor.megaRed.cgColor
         wordView.layer.borderWidth = 1.0
         
-        // 현재 로그인된 사용자의 ID를 전달하여 사용자 정보를 가져와 UI에 표시
-//        if let userId = isLoggedIn { //근데 아직 isLoggedInt은 내가 생각해 놓은 것,,
-//            if let userData = coreDataManager.fetchUserData(forUserId: userId) {
-//                // 사용자 정보를 UI에 표시
-//                nicknameLabel.text = userData.nickName
-//                nameLabel.text = userData.name
-//                birthLabel.text = "\(userData.birthDate)"
-//                idLabel.text = userData.id
-//                let hiddenText = String(repeating: "•", count: userData.pwd!.count)
-//                passwordLabel.text = hiddenText
-//            }
-//        }
+        // UserDefaults에서 userId 가져오기
+        if let userId = UserDefaults.standard.string(forKey: "userIdForKey"),
+           let userData = coreDataManager.fetchUserData(forUserId: userId) {
+            // 사용자 정보를 UI에 표시
+            nicknameLabel.text = userData.nickName
+            nameLabel.text = userData.name
+            birthLabel.text = "\(userData.birthDate)"
+            idLabel.text = userData.id
+            let hiddenText = String(repeating: "•", count: userData.pwd!.count)
+            passwordLabel.text = hiddenText
+        }
+    }
+    
+    //네비게이션 바 숨기기
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated) 
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // 프로필 사진 변경
@@ -166,6 +176,9 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     //로그아웃 버튼 클릭 시
     @IBAction func logoutTapped(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
         // 로그인 상태 삭제
         UserDefaults.standard.removeObject(forKey: "userIdForKey")
         
@@ -174,8 +187,10 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         let confirmAction = UIAlertAction(title: "확인", style: .destructive) { _ in
             // 로그아웃 시 로그인 화면으로 이동
-            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") {
-                self.navigationController?.pushViewController(loginVC, animated: true)
+            let loginStoryboard = UIStoryboard(name: "LoginView", bundle: nil)
+            if let loginVC = loginStoryboard.instantiateViewController(withIdentifier: "LoginController") as? LoginController {
+                loginVC.modalPresentationStyle = .fullScreen
+                self.present(loginVC, animated: true, completion: nil)
             }
         }
         // 취소 액션 추가
@@ -196,13 +211,6 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
-    
-    //내 정보 받아오기
-    let nicknameText = "구리구리 쇠똥구리"
-    let name = "홍길동"
-    let birth = "2024.04.27"
-    let id = "megastruct123"
-    let passwordText = "megapassword1234"
 }
 
 extension UITabBar {
