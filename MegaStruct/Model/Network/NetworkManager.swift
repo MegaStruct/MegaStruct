@@ -39,6 +39,7 @@ final class NetworkManager {
     private let popularMoviePath = "/3/movie/popular"
     private let topRatedMoviePath = "/3/movie/top_rated"
     private let moviePosterPath = "/t/p/w500"
+    private let searchMoviePath = "/3/search/movie"
     
     // MARK: - methods
     func fetchMovieList(category: HeaderTitle, language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
@@ -121,6 +122,42 @@ final class NetworkManager {
             completion(.success(data))
         }
         
+        task.resume()
+    }
+    
+    func fetchSearchResult(page: Int, searchKeyword: String, completion: @escaping ((Result<Response, Error>) -> Void)) {
+        var urlComponents = URLComponents()
+        
+        urlComponents.scheme = self.scheme
+        urlComponents.host = self.movieHost
+        urlComponents.path = self.searchMoviePath
+        
+        urlComponents.queryItems = [URLQueryItem(name: "language", value: "en-KR"), URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "query", value: searchKeyword), URLQueryItem(name: "include_adult", value: "false")]
+        
+        guard let url = urlComponents.url else {
+            // completion(.failure(<#T##Error#>))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue("\(self.authorization)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(self.accept)", forHTTPHeaderField: "accept")
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let product = try JSONDecoder().decode(Response.self, from: data)
+                    completion(.success(product))
+                } catch {
+                    completion(.failure(error))
+                    print("Decode Error: \(error)")
+                }
+            }
+        }
         task.resume()
     }
 }

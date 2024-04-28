@@ -17,6 +17,51 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        var controller: UIViewController?
+        
+        if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") { //자동로그인있음
+            let myPageStoryboard = UIStoryboard(name: "MypageView", bundle: nil)
+            let myPageViewController = myPageStoryboard.instantiateViewController(withIdentifier: "MyPageController") as! MyPageController
+                                                 
+            let tabbarController = UITabBarController()
+            tabbarController.setViewControllers([SearchViewController(), MainViewController(), myPageViewController], animated: true)
+                                                 
+            if let items = tabbarController.tabBar.items {
+                items[0].image = .search
+                items[1].image = .category
+                items[2].image = .profile
+            }
+            tabbarController.tabBar.items?.forEach { $0.title = nil }
+            tabbarController.tabBar.items?.forEach {
+                $0.imageInsets = UIEdgeInsets(top: 15, left: 0, bottom: -15, right: 0)
+            }
+                                                 
+            tabbarController.tabBar.backgroundColor = .megaRed //.white
+            tabbarController.tabBar.tintColor = .white
+            tabbarController.tabBar.unselectedItemTintColor = .black
+            tabbarController.tabBar.layer.cornerRadius = 34
+            tabbarController.tabBar.itemPositioning = .centered
+            tabbarController.selectedIndex = 1
+              
+            controller = tabbarController
+            
+        } else {
+            let loginStoryboard = UIStoryboard(name: "LoginView", bundle: nil)
+            let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginController") as! LoginController
+            let navigationController = UINavigationController(rootViewController: loginViewController)
+            
+            controller = navigationController
+        }
+        
+        if (controller as? UITabBarController) == nil {
+            window?.rootViewController = controller
+        } else {
+            window?.rootViewController = (controller as? UITabBarController)
+        }
+        
+        window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
