@@ -166,16 +166,18 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     //로그아웃 버튼 클릭 시
     @IBAction func logoutTapped(_ sender: Any) {
+        // 로그인 상태 삭제
+        UserDefaults.standard.removeObject(forKey: "userIdForKey")
+        
         // 확인 메시지를 포함한 UIAlertController 생성
         let alert = UIAlertController(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", preferredStyle: .alert)
         
-        // 확인 액션 추가
-        let confirmAction = UIAlertAction(title: "확인", style: .destructive)  // { _ in
-            //if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginController") {
-                //self.navigationController?.pushViewController(loginVC, animated: true)
-            //}
-        //}
-        
+        let confirmAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            // 로그아웃 시 로그인 화면으로 이동
+            if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginController") {
+                self.navigationController?.pushViewController(loginVC, animated: true)
+            }
+        }
         // 취소 액션 추가
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
