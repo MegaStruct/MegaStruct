@@ -91,7 +91,7 @@ final class NetworkManager {
         task.resume()
     }
     
-    func fetchPosterUrlImage(url: String, completion: @escaping ((Result<Data, Error>) -> Void)) {
+    func fetchUrlImage(url: String, completion: @escaping ((Result<Data, Error>) -> Void)) {
         var urlComponents = URLComponents()
         
         urlComponents.scheme = self.scheme

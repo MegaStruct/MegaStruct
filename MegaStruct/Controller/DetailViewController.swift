@@ -7,23 +7,90 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // MARK: - properties
+    private let detailView = DetailView()
+    private let networkManager = NetworkManager.shared
+    
+    private var movie: Movie?
+    private var posterData: Data?
+    private var backdropData: Data?
+    
+    // MARK: - life cycles
+    override func loadView() {
+        view = self.detailView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureUI()
+        configureAddTarget()
     }
-    */
-
+    
+    // MARK: - methods
+    private func configureUI() {
+        if let sheetPresentationController = sheetPresentationController {
+            sheetPresentationController.detents = [ .large()]
+        }
+        sheetPresentationController?.prefersGrabberVisible = true
+    }
+    
+    private func configureAddTarget() {
+        detailView.ticketingButton.addTarget(self, action: #selector(didTappedTicketingButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTappedTicketingButton() {
+        print("예매 화면으로 이동")
+    }
+    
+    func bind(movie: Movie) {
+        self.movie = movie
+        
+        let dispatchGroup = DispatchGroup()
+        
+        fetchPosterData(group: dispatchGroup)
+        fetchBackdropData(group: dispatchGroup)
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.detailView.bind(movie: movie, backdropData: self?.backdropData, posterData: self?.posterData)
+        }
+    }
+    
+    private func fetchPosterData(group: DispatchGroup) {
+        group.enter()
+        
+        if let posterPath = movie?.posterPath, !posterPath.isEmpty {
+            networkManager.fetchUrlImage(url: posterPath) { result in
+                switch result {
+                case .success(let data):
+                    self.posterData = data
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                group.leave()
+            }
+        } else {
+            group.leave()
+        }
+    }
+    
+    private func fetchBackdropData(group: DispatchGroup) {
+        group.enter()
+        
+        if let backdropPath = movie?.backdropPath, !backdropPath.isEmpty {
+            networkManager.fetchUrlImage(url: backdropPath) { result in
+                switch result {
+                case .success(let data):
+                    self.backdropData = data
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                group.leave()
+            }
+        } else {
+            group.leave()
+        }
+    }
 }

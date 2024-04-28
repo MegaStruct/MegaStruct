@@ -184,7 +184,7 @@ extension MainViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             if let posterPath = upcomingMovies[indexPath.row].posterPath {
-                networkManager.fetchPosterUrlImage(url: posterPath) { result in
+                networkManager.fetchUrlImage(url: posterPath) { result in
                     switch result {
                     case .success(let data):
                         DispatchQueue.main.async {
@@ -201,7 +201,7 @@ extension MainViewController: UICollectionViewDataSource {
             }
         case 1:
             if let posterPath = nowPlayingMovies[indexPath.row].posterPath {
-                networkManager.fetchPosterUrlImage(url: posterPath) { result in
+                networkManager.fetchUrlImage(url: posterPath) { result in
                     switch result {
                     case .success(let data):
                         DispatchQueue.main.async {
@@ -218,7 +218,7 @@ extension MainViewController: UICollectionViewDataSource {
             }
         case 2:
             if let posterPath = popularMovies[indexPath.row].posterPath {
-                networkManager.fetchPosterUrlImage(url: posterPath) { result in
+                networkManager.fetchUrlImage(url: posterPath) { result in
                     switch result {
                     case .success(let data):
                         DispatchQueue.main.async {
@@ -235,7 +235,7 @@ extension MainViewController: UICollectionViewDataSource {
             }
         default:
             if let posterPath = topRatedMovies[indexPath.row].posterPath {
-                networkManager.fetchPosterUrlImage(url: posterPath) { result in
+                networkManager.fetchUrlImage(url: posterPath) { result in
                     switch result {
                     case .success(let data):
                         DispatchQueue.main.async {
