@@ -39,7 +39,9 @@ struct Movie: Decodable {
         case backdropPath = "backdrop_path"
         case genreIDS = "genre_ids"
         case id
-        case originalLanguage, originalTitle, overview
+        case originalLanguage
+        case originalTitle = "original_title"
+        case overview
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title
