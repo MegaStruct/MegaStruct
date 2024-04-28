@@ -13,11 +13,12 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     var reservations: [NSManagedObject] = []
     // CoreDataManager 인스턴스 생성
     let coreDataManager = CoreDataManager.shared
-        
-    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 탭바의 스타일 설정
+        self.tabBarController?.tabBar.setUpUITabBar()
        
         tableView.dataSource = self
         tableView.delegate = self
@@ -200,6 +201,14 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     let birth = "2024.04.27"
     let id = "megastruct123"
     let passwordText = "megapassword1234"
+}
+
+extension UITabBar {
+    func setUpUITabBar(){
+        self.backgroundImage = UIImage()
+        self.shadowImage = UIImage()
+        self.clipsToBounds = true
+    }
 }
 
 
