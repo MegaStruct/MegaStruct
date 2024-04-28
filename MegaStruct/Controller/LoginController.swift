@@ -23,11 +23,7 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let lastLoggedInUser = UserDefaults.standard.string(forKey: "userIdForKey") {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-//                self.moveMain()
-//            } //자동로그인
-//        }
+
         customTextField(userIdTextField)
         customTextField(userPwdTextField)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkBoxDidTap))
@@ -120,9 +116,7 @@ class LoginController: UIViewController {
         tabbarController.tabBar.itemPositioning = .centered
         tabbarController.selectedIndex = 1
         tabbarController.modalPresentationStyle = .fullScreen
-        
-//        let mainVC = MainViewController()
-//        mainVC.modalPresentationStyle = .fullScreen
+
         present(tabbarController, animated: true)
     }
     
