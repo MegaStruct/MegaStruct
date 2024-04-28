@@ -91,13 +91,9 @@ class LoginController: UIViewController {
         
         let myPageStoryboard = UIStoryboard(name: "MypageView", bundle: nil)
         let myPageViewController = myPageStoryboard.instantiateViewController(withIdentifier: "MyPageController") as! MyPageController
-        
-        let firstVC = UINavigationController(rootViewController: SearchViewController())
-        let secondVC = UINavigationController(rootViewController: MainViewController())
-        let thirdVC = UINavigationController(rootViewController: myPageViewController)
                                              
         let tabbarController = UITabBarController()
-        tabbarController.setViewControllers([firstVC,secondVC,thirdVC], animated: true)
+        tabbarController.setViewControllers([SearchViewController(),MainViewController(),myPageViewController], animated: true)
                                              
         if let items = tabbarController.tabBar.items {
             items[0].image = .search
