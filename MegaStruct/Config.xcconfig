@@ -8,4 +8,4 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-API_KEY = Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTJlMjdlNmY4OTg3NDJiYWRkZGQ1M2Y3YmVlMjdhYiIsInN1YiI6IjY2Mjc0NzM0Y2I1YzhlMDE2NDQwOTA3ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e89vBnyXYE_bgn25welq_Bkx1eb57L_CeYHNjdeXDsk
+API_KEY = API KEY를 입력해주세요
