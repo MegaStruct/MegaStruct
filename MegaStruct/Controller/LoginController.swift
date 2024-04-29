@@ -105,8 +105,8 @@ class LoginController: UIViewController {
             $0.imageInsets = UIEdgeInsets(top: 15, left: 0, bottom: -15, right: 0)
         }
                                              
-        tabbarController.tabBar.backgroundColor = .megaRed //.white
-        tabbarController.tabBar.tintColor = .white
+        tabbarController.tabBar.backgroundColor = .white
+        tabbarController.tabBar.tintColor = .megaRed
         tabbarController.tabBar.unselectedItemTintColor = .black
         tabbarController.tabBar.layer.cornerRadius = 34
         tabbarController.tabBar.itemPositioning = .centered

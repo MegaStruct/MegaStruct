@@ -12,6 +12,7 @@ enum HeaderTitle {
     case nowPlaying
     case popular
     case topRated
+    case trending
 }
 
 final class NetworkManager {
@@ -40,6 +41,7 @@ final class NetworkManager {
     private let topRatedMoviePath = "/3/movie/top_rated"
     private let moviePosterPath = "/t/p/w500"
     private let searchMoviePath = "/3/search/movie"
+    private let trendingMoviePath = "/3/trending/movie/day"
     
     // MARK: - methods
     func fetchMovieList(category: HeaderTitle, language: String, page: Int, completion: @escaping ((Result<Response, Error>) -> Void)) {
@@ -57,6 +59,8 @@ final class NetworkManager {
             urlComponents.path = self.popularMoviePath
         case .topRated:
             urlComponents.path = self.topRatedMoviePath
+        case .trending:
+            urlComponents.path = self.trendingMoviePath
         }
         
         urlComponents.queryItems = [URLQueryItem(name: "language", value: "\(language)"), URLQueryItem(name: "page", value: "\(page)")]
