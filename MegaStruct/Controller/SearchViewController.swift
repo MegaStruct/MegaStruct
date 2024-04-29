@@ -25,7 +25,8 @@ class SearchViewController: UIViewController{
         let bgview = UIView()
         bgview.layer.shadowColor = UIColor.black.cgColor
         bgview.layer.shadowOpacity = 0.6
-        bgview.layer.shadowOffset = CGSize(width: 0, height: 5)
+        bgview.layer.shadowOffset = CGSize(width: 0, height: 0)
+        bgview.layer.shadowRadius = 5
         bgview.layer.masksToBounds = false
         bgview.layer.shouldRasterize = false
         bgview.backgroundColor = UIColor.white
@@ -131,8 +132,8 @@ class SearchViewController: UIViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         getLastSearch()
-        print(searchList)
         setUI()
+        fetchTrendingResults()
         view.backgroundColor = .white
     }
     
@@ -143,7 +144,7 @@ class SearchViewController: UIViewController{
         NSLayoutConstraint.activate([
             searchView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            searchView.widthAnchor.constraint(equalToConstant: 362),
+            searchView.widthAnchor.constraint(equalToConstant: 340),
             searchView.heightAnchor.constraint(equalToConstant: 52)
         ])
         
@@ -152,7 +153,7 @@ class SearchViewController: UIViewController{
         NSLayoutConstraint.activate([
             searchBar.centerXAnchor.constraint(equalTo: searchView.centerXAnchor),
             searchBar.centerYAnchor.constraint(equalTo: searchView.centerYAnchor),
-            searchBar.widthAnchor.constraint(equalToConstant: 280)
+            searchBar.widthAnchor.constraint(equalToConstant: 320)
         ])
         if searchList.isEmpty {
             print("검색기록이 없음")
@@ -292,7 +293,24 @@ class SearchViewController: UIViewController{
         }
     }
     
+    func fetchTrendingResults() {
+        print("트렌딩")
+        networkManager.fetchMovieList(category: .popular, language: "ko", page: 1) { result in
+            switch result {
+            case .success(let data):
+                self.searchResult = data
+                self.movieResult = data.results
+                DispatchQueue.main.async {
+                    self.cardContent.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func updateSearchResults() {
+        print("결과update")
         networkManager.fetchSearchResult(page: 1, searchKeyword: searchWord) {  [weak self] result in
             switch result {
             case .success(let response):
@@ -307,7 +325,34 @@ class SearchViewController: UIViewController{
         }
     }
     
-    func loadMore() {
+    func loadTrendingMore() {
+        if page <= searchResult.totalPages! {
+            page += 1
+            
+            networkManager.fetchMovieList(category: .popular, language: "ko", page: page) { result in
+                switch result {
+                case .success(let data):
+                    let startIndex = self.movieResult.count - 1 // 새로운 아이템의 시작 인덱스
+                    let endIndex =  self.movieResult.count + data.results.count // 새로운 아이템의 끝 인덱스
+                    self.movieResult += data.results
+                    var newIndexPaths: [IndexPath] = []
+                    for index in startIndex..<endIndex {
+                        let indexPath = IndexPath(row: index, section: 0)
+                        newIndexPaths.append(indexPath)
+                    }
+                    DispatchQueue.main.async {
+                        self.cardContent.reloadData()
+                        //self.cardContent.reloadItems(at: newIndexPaths)
+                        //self.cardContent.reconfigureItems(at: newIndexPaths)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    func loadSearchMore() {
         if page <= searchResult.totalPages! {
             page += 1
             networkManager.fetchSearchResult(page: page, searchKeyword: searchWord) {  [weak self] result in
@@ -338,8 +383,12 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("사용자가 입력한 텍스트: \(searchText)")
         searchWord = searchText
-        updateSearchResults()
-        
+        if searchText == "" {
+            fetchTrendingResults()
+        } else {
+            updateSearchResults()
+        }
+
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -356,6 +405,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        fetchTrendingResults()
         searchBar.text = ""
     }
     
@@ -450,7 +500,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == movieResult.count - 1{
-            loadMore()
+            if searchWord == "" {
+                loadTrendingMore()
+            } else {
+                loadSearchMore()
+            }
         }
     }
 }
